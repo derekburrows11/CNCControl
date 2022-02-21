@@ -1,0 +1,34 @@
+---------------------
+** machine sizes **
+
+Y Base bar thickness:			 5.5mm
+Base thickness:				18.5mm
+Vacuum board thickness:			12.5mm
+Top of Vacuum board above frount bar:	36.5mm
+Top of Vacuum board above base bars:	31.0mm
+
+z Router Collet Head at Top of Vacuum board:	41.0mm
+z Router Collet Head at Base Bars:	10.0mm
+Router Head to Router Aluminium Mount lowest edge = 56mm
+
+probe length with flat tip, without rubber cap, when in = 182.6mm
+
+Base screw grid base [111  125]
+grid 200x200
+
+Vacuum board grid base [ 15.0   7.0 ]   +
+ was [17.5  0.5]
+
+
+------------------------------
+encoder indexes
+Z
+CngPos	0x648
+CngdPos	7
+CngPos	0x642
+CngdPos	1
+CngPos	0x63d
+CngdPos	-1
+CngPos	0x639
+CngdPos	-8
+

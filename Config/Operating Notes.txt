@@ -1,0 +1,82 @@
+
+Tool		Tip to Chuck (with 17/32" ball bearing)
+------------------------------
+  (all checked relative)
+*** 1/4" SHANK ***
+T112		18.3	18mm  90deg vee groove
+T204S		10.7	1/8"  flat
+T206S		11.2	3/16" flat
+T207M		~20.9	7mm   flat
+T208		10.85	1/4"  flat - too short for ball bearing
+TX208		30.6	1/4"  flat
+TTSRW4		30.0	1/8"  flat spiral
+
+*** 1/2" SHANK ***
+TX1412M		49.3	12mm flat
+TX1416		68.5	1/2" flat
+T1420M		55.5	20mm flat
+TXXSRW16	75.15	1/2" flat spiral
+
+T416		28.9	 6.35mm radius ball
+T448		38.2	19.05mm radius ball
+THC45		40.4	45mm radius ball
+THC75		41.2	75mm radius ball
+
+TSS13		51.8	50.8mm solid surface
+
+
+-----------------------------------
+*** stonker bases ***
+Vacuum base = 24.4  or 24.3
+
+Check!!!!!
+[1615.0  107.0  50]  grid hole  (home pos in MC  [ 725   -225])
+	centre of board [ 890.0  332.0] origin in MC
+27 Aug 05
+[1614.5  106.0  50]  grid hole  (home pos in MC  [ 725   -225])
+	centre of board [ 889.5  331.0]   [0  0] in MC
+	hole            [ 914.5  306.0]   [25 -25] in MC
+
+
+	edge of 147     [1623.5  135.0]
+using:		       speed
+TX1416		68.5	4.5  1/2" flat
+THC75		41.2	3    75mm radius ball
+
+Stringers
+start
+[1605  239  50]
+
+using:		       speed
+TSS13		51.8	3.0	50.8mm solid surface
+TX208		30.6	6.0	1/4"  flat
+
+-----------------------------------
+mirror x = 914.0 (+0.5mm from centre hole)	for sheet
+  Xreflect = 2 * Xmirror - Xorig
+  Xreflect = 1828 - Xorig
+
+** last **
+
+start
+
+cut mould sheets
+[1662  159  50] corner of sheet
+
+mould surface
+[1812  109  0] corner of base sheet
+  
+start
+[1612  59  200]
+[1612  59  199] finish
+
+[1612  20  50] base
+
+
+surf 150 core base
+[1614.0  107.0  50]  grid hole 
+[1614.0  107.5  50]  grid hole - latest
+
+160 trimmer
+[1750  250  50]
+

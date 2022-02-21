@@ -1,0 +1,54 @@
+
+axis 0
+origin      22.5000
+
+axis 0
+offset pos   0.0000
+offset neg  -0.1300
+edge0      426.7230
+tabs         5.7538   5.5548   6.8958
+gaps              2.7863   2.8693
+width       23.8599
+edge1      450.5829
+
+axis 0
+offset pos   0.0000
+offset neg  -0.1300
+edge0      887.1600
+tabs         7.1674   4.6265   6.8274
+gaps              2.7618   2.9010
+width       24.2841
+edge1      911.4441
+
+axis 0
+offset pos   0.0000
+offset neg  -0.1300
+edge0     1346.9257
+tabs         4.8218   9.6826   7.5153
+gaps              2.8589   2.8522
+width       27.7307
+edge1     1374.6564
+
+
+
+
+axis 1
+origin       5.0000
+
+axis 1
+offset pos   0.0000
+offset neg  -0.1300
+edge0      258.1195
+tabs        10.4303   2.4933  14.0826
+gaps              2.7509   2.8571
+width       32.6141
+edge1      290.7336
+
+axis 1
+offset pos   0.0000
+offset neg  -0.1300
+edge0      562.7020
+tabs        11.3538   5.0012  10.3497
+gaps              2.8906   2.8448
+width       32.4402
+edge1      595.1422
