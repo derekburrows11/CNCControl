@@ -1,0 +1,1643 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\CNCControl.ico"
+IDR_PARAMVIEW           ICON    DISCARDABLE     "res\\CNCControlDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_MACHINE_REQUESTALLPARAMETERS, VIRTKEY, ALT, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_MACHINE_SENDALLPARAMETERS, VIRTKEY, ALT, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F1,          ID_MACHINE_SENDPARAMETER, VIRTKEY, NOINVERT
+    VK_F2,          ID_MACHINE_REQUESTPARAMETER, VIRTKEY, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "CNCControl MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "CNCControl\0"
+            VALUE "LegalCopyright", "Copyright (C) 1900\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "CNCControl.EXE\0"
+            VALUE "ProductName", "CNCControl Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Australia) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENA)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_AUS
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+IDR_PATHBAR             BITMAP  DISCARDABLE     "res\\pathtoolbar.bmp"
+IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
+IDR_MOTIONPLOTBAR       BITMAP  DISCARDABLE     "res\\motionpl.bmp"
+IDR_VIEWBAR             BITMAP  DISCARDABLE     "res\\toolbarz.bmp"
+IDR_VIEWDIRBAR          BITMAP  DISCARDABLE     "res\\viewdirb.bmp"
+IDR_PLAYERBAR           BITMAP  MOVEABLE PURE   "res\\playerba.bmp"
+IDB_BITMAPBAR           BITMAP  DISCARDABLE     "res\\bitmap2.bmp"
+IDB_BUTTONLEFT          BITMAP  DISCARDABLE     "res\\idc_butt.bmp"
+IDB_BUTTONRIGHT         BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
+IDB_BUTTONUP            BITMAP  DISCARDABLE     "res\\bmp00003.bmp"
+IDB_BUTTONDOWN          BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
+IDB_BUTTONSTOP          BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
+IDB_TOOLSIZE            BITMAP  DISCARDABLE     "res\\bitmap3.bmp"
+IDB_BUTTONUPLEFT        BITMAP  DISCARDABLE     "res\\buttonup.bmp"
+IDB_BUTTONUPRIGHT       BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
+IDB_BUTTONDOWNLEFT      BITMAP  DISCARDABLE     "res\\buttondo.bmp"
+IDB_BUTTONDOWNRIGHT     BITMAP  DISCARDABLE     "res\\bmp00006.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_MACHINE_OPENCOMMUNICATIONS
+    BUTTON      ID_MACHINE_SETTOOL
+    SEPARATOR
+    BUTTON      ID_PATH_FINDSPEEDS
+    BUTTON      ID_PATH_ANIMATE
+    SEPARATOR
+    BUTTON      ID_PATH_SENDSTART
+    BUTTON      ID_PATH_SENDSTOP
+    BUTTON      ID_PATH_SENDRESET
+    SEPARATOR
+    BUTTON      ID_SENDPKTSTEP
+    BUTTON      ID_SENDPKT
+END
+
+IDR_PATHBAR TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_SHOWENDNODES
+    BUTTON      ID_SHOWCTRLNODES
+    BUTTON      ID_SHOWCTRLNODELINES
+    BUTTON      ID_SHOWBEZIERS
+    SEPARATOR
+    BUTTON      ID_PATHCOLORFEEDRATE
+    BUTTON      ID_PATHCOLORCURVE
+    SEPARATOR
+    BUTTON      ID_PATHSHOWORIG
+    BUTTON      ID_PATHSHOWFITTED
+END
+
+IDB_BITMAP1 TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_BUTTON32807
+    BUTTON      ID_BUTTON32808
+    BUTTON      ID_BUTTON32809
+    SEPARATOR
+    BUTTON      ID_BUTTON32810
+    SEPARATOR
+    BUTTON      ID_BUTTON32811
+END
+
+IDR_MOTIONPLOTBAR TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_SHOWPOS
+    BUTTON      ID_SHOWVEL
+    BUTTON      ID_SHOWACC
+    BUTTON      ID_SHOWJERK
+    SEPARATOR
+    BUTTON      ID_SHOWX
+    BUTTON      ID_SHOWY
+    BUTTON      ID_SHOWZ
+    SEPARATOR
+    BUTTON      ID_SHOWREQUESTEDSEGS
+    BUTTON      ID_SHOWACTUALSEGS
+    BUTTON      ID_SHOWACTUALreqSEGS
+END
+
+IDR_VIEWBAR TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_VIEW_PREV
+    BUTTON      ID_VIEW_NEXT
+    SEPARATOR
+    BUTTON      ID_VIEW_ZOOMIN
+    BUTTON      ID_VIEW_ZOOMOUT
+    SEPARATOR
+    BUTTON      ID_VIEW_ZOOM11
+    BUTTON      ID_VIEW_ZOOMALL
+    BUTTON      ID_VIEW_ISOSCALE
+    SEPARATOR
+    BUTTON      ID_VIEW_STORE_LOC
+    BUTTON      ID_VIEW_SET_LOC
+END
+
+IDR_VIEWDIRBAR TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_VIEWDIR_X
+    BUTTON      ID_VIEWDIR_Y
+    BUTTON      ID_VIEWDIR_Z
+    BUTTON      ID_VIEWDIR_ISO
+    SEPARATOR
+    BUTTON      ID_VIEWDIR_FLIP
+    SEPARATOR
+    BUTTON      ID_VIEW_SHOWREGION
+END
+
+IDR_PLAYERBAR TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_PATH_ANIMATE_START
+    BUTTON      ID_PATH_ANIMATE_PAUSE
+    BUTTON      ID_PATH_ANIMATE_STOP
+    SEPARATOR
+    BUTTON      IDC_EDIT_RATE
+    SEPARATOR
+    BUTTON      ID_ANIMATIONSETTINGS
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "Toolbars"
+        BEGIN
+            MENUITEM "Standard",                    ID_VIEW_TOOLBAR
+            MENUITEM "View Zoom",                   IDW_VIEW_BAR
+            MENUITEM "View Direction",              IDW_VIEWDIR_BAR
+            MENUITEM "Path Position",               IDW_PATHPOSITION_BAR
+            MENUITEM "Path Display",                IDW_PATH_BAR
+            MENUITEM "Path Animate",                IDW_PLAYER_BAR
+            MENUITEM "Path Speed Plot ",            IDW_MOTIONPLOT_BAR
+        END
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        POPUP "&Parameters"
+        BEGIN
+            MENUITEM "&General",                    ID_VIEW_PARAMETERS_GENERAL
+
+            MENUITEM "&Axis",                       ID_VIEW_PARAMETERS_AXIS
+            MENUITEM "All",                         ID_VIEW_PARAMETERS_ALL
+        END
+        MENUITEM "Event &Log",                  ID_VIEW_LOG
+        MENUITEM SEPARATOR
+        MENUITEM "Zoom &In\tI",                 ID_VIEW_ZOOMIN
+        MENUITEM "Zoom &Out\tO",                ID_VIEW_ZOOMOUT
+        MENUITEM "Zoom &All\tA",                ID_VIEW_ZOOMALL
+        MENUITEM "Zoom &1:1\t1",                ID_VIEW_ZOOM11
+        MENUITEM SEPARATOR
+        POPUP "&Direction"
+        BEGIN
+            MENUITEM "&X axis",                     ID_VIEWDIR_X
+            MENUITEM "&Y axis",                     ID_VIEWDIR_Y
+            MENUITEM "&Z axis",                     ID_VIEWDIR_Z
+            MENUITEM "&Isometric",                  ID_VIEWDIR_ISO
+        END
+    END
+    POPUP "Path"
+    BEGIN
+        MENUITEM "Start Sending",               ID_PATH_SENDSTART
+        MENUITEM "Stop Sending",                ID_PATH_SENDSTOP
+        MENUITEM "Send Send Next Section",      ID_PATH_SENDNEXT
+        MENUITEM SEPARATOR
+        MENUITEM "Request Next Path Data",      ID_PATH_REQUESTNEXTPATHDATA
+        MENUITEM "Request All Path Data",       ID_PATH_REQUESTALLPATHDATA
+        MENUITEM SEPARATOR
+        MENUITEM "&Find Speeds",                ID_PATH_FINDSPEEDS
+        MENUITEM "&Animate Movement",           ID_PATH_ANIMATE
+        MENUITEM "Animation Settings...",       ID_ANIMATIONSETTINGS
+        MENUITEM SEPARATOR
+        MENUITEM "&Segment Tracking...",        ID_PATH_SEGMENTTRACKING
+        MENUITEM "do it",                       ID_PATH_DOIT
+        MENUITEM SEPARATOR
+        MENUITEM "Base Screws Array",           ID_PATH_HOLEMATRIXBASESCREWS
+        MENUITEM "Base Vacuum Hose Array",      ID_PATH_BASEVACUUMHOSEARRAY
+        MENUITEM "Base Vacuum Hose Single",     ID_PATH_BASEVACUUMHOSESINGLE
+        MENUITEM "Vacuum Board Star Array",     ID_PATH_DOSTARHOLEMATRIX
+        MENUITEM "Vacuum Board Trenching",      ID_PATH_VACUUMBOARDTRENCHING
+        MENUITEM "Manifold Vacuum Box Array",   ID_PATH_MANIFOLDVACUUMBOXARRAY
+
+        MENUITEM "Manifold Vacuum Box Single",  ID_PATH_MANIFOLDVACUUMBOXSINGLE
+
+        MENUITEM SEPARATOR
+        MENUITEM "Depth Check",                 ID_PATH_DEPTHCHECK
+        MENUITEM "Calibration Mark Array",      ID_PATH_HOLEMATRIXSERVOCAL
+        MENUITEM "Hole Array",                  ID_PATH_HOLEMATRIX
+        MENUITEM SEPARATOR
+        MENUITEM "Do Boatshed Small",           ID_PATH_DOBOATSHED1
+        MENUITEM "Do Boatshed Medium",          ID_PATH_DOBOATSHED2
+        MENUITEM "Do Boatshed Large",           ID_PATH_DOBOATSHED3
+        MENUITEM "Do Rectangle",                ID_PATH_DORECTANGLE
+        MENUITEM "Do Circle",                   ID_PATH_DOCIRCLE
+        MENUITEM "Do Heart",                    ID_PATH_DOHEART
+        MENUITEM "Do Minaret",                  ID_PATH_DOMINARET
+    END
+    POPUP "&Machine"
+    BEGIN
+        MENUITEM "Open/Close Communications",   ID_MACHINE_OPENCLOSECOMMUNICATIONS
+
+        MENUITEM "Simulate Controller Response", ID_MACHINE_SIMULATERESPONSE
+        MENUITEM SEPARATOR
+        MENUITEM "&Send Parameter\tF1",         ID_MACHINE_SENDPARAMETER
+        MENUITEM "&Request Parameter\tF2",      ID_MACHINE_REQUESTPARAMETER
+        MENUITEM "Send all Parameters\tAlt+S",  ID_MACHINE_SENDALLPARAMETERS
+        MENUITEM "Request all Parameters\tAlt+R", 
+                                                ID_MACHINE_REQUESTALLPARAMETERS
+
+        MENUITEM SEPARATOR
+        MENUITEM "Diagnose Controller...",      ID_MACHINE_DIAGNOSEBOX
+        MENUITEM "Send Byte...\tF4",            ID_MACHINE_SENDBYTES
+        MENUITEM "Log Comms Data",              ID_MACHINE_LOGCOMMSDATA
+        MENUITEM "Show Comms Data",             ID_MACHINE_SHOWCOMMSDATA
+        MENUITEM "Show Machine Status",         ID_MACHINE_SHOWMACHINESTATUS
+        MENUITEM SEPARATOR
+        MENUITEM "Manual Controller",           ID_MACHINE_MANUALCONT
+        MENUITEM "Probe Sample Controller",     ID_MACHINE_PROBESAMPLE
+        MENUITEM SEPARATOR
+        MENUITEM "Machine &Properties...",      ID_MACHINE_PROPERTIES
+        MENUITEM "Set Tool...",                 ID_MACHINE_SETTOOL
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "Comms &Port Select...",       ID_OPTIONS_PORTSELECT
+        MENUITEM "Comms Port &Configure...",    ID_OPTIONS_PORTCONFIG
+        MENUITEM SEPARATOR
+        MENUITEM "&Settings...",                ID_OPTIONS_SETTINGS
+        MENUITEM SEPARATOR
+        MENUITEM "Scroll Bars",                 ID_OPTIONS_SCROLLBARS
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New Window",                 ID_WINDOW_NEW
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About CNCControl...",        ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  100, 100, 217, 58
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "About CNCControl"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "CNCControl Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 1900",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,32,14,WS_GROUP
+END
+
+IDD_COMMSDATA DIALOG DISCARDABLE  450, 150, 432, 210
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Comms Data"
+FONT 10, "Courier"
+BEGIN
+    LTEXT           "Transmitted",IDC_STATIC,59,4,45,8
+    EDITTEXT        IDC_EDIT2,220,15,208,188,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
+    EDITTEXT        IDC_EDIT1,6,15,208,188,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    LTEXT           "Received",IDC_STATIC,282,4,34,8
+END
+
+IDD_PORTSELECT DIALOG DISCARDABLE  0, 0, 128, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Comm Port Select"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,79,20,42,14
+    PUSHBUTTON      "Cancel",IDCANCEL,80,42,42,14
+    CONTROL         "COM 1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | WS_GROUP,20,10,38,14
+    CONTROL         "COM 2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,20,25,38,14
+    CONTROL         "COM 3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,20,40,38,14
+    CONTROL         "COM 4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,20,55,38,14
+END
+
+IDD_DIAGNOSE DIALOG DISCARDABLE  250, 200, 261, 151
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Diagnose Controller"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Dec",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    41,3,29,10
+    CONTROL         "Hex",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,41,13,29,10
+    CONTROL         "Dec",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    89,3,29,10
+    CONTROL         "Hex",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,89,13,29,10
+    EDITTEXT        IDC_EDIT_MEM_ADDR,38,36,32,13,ES_RIGHT | ES_AUTOHSCROLL | 
+                    WS_GROUP
+    EDITTEXT        IDC_EDIT_MEM_VALUE,85,36,32,13,ES_RIGHT | ES_AUTOHSCROLL
+    PUSHBUTTON      "1",IDC_BUTTON_BYTES_MEM,133,36,18,14
+    CONTROL         "Addr",IDC_CHECK_INC_MEM_ADDR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,161,40,31,10
+    PUSHBUTTON      "R",IDC_BUTTON_REQ_MEM,201,36,20,14
+    PUSHBUTTON      "S",IDC_BUTTON_SEND_MEM,233,36,20,14
+    PUSHBUTTON      "Close",IDCANCEL,203,126,50,14
+    LTEXT           "Memory Address",IDC_STATIC,24,26,53,8
+    LTEXT           "Value",IDC_STATIC,93,26,19,8
+    LTEXT           "Bytes",IDC_STATIC,133,26,18,8
+    LTEXT           "Request",IDC_STATIC,199,26,28,8
+    LTEXT           "Send",IDC_STATIC,235,26,18,8
+    EDITTEXT        IDC_EDIT_REG_ADDR,50,66,26,13,ES_RIGHT | ES_AUTOHSCROLL | 
+                    WS_GROUP
+    EDITTEXT        IDC_EDIT_REG_VALUE,85,66,32,13,ES_RIGHT | ES_AUTOHSCROLL
+    PUSHBUTTON      "1",IDC_BUTTON_BYTES_REG,133,66,18,14
+    CONTROL         "Reg",IDC_CHECK_INC_REG,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,161,70,29,10
+    PUSHBUTTON      "R",IDC_BUTTON_REQ_REG,201,66,20,14
+    PUSHBUTTON      "S",IDC_BUTTON_SEND_REG,233,66,20,14
+    LTEXT           "Register",IDC_STATIC,51,56,27,8
+    EDITTEXT        IDC_EDIT_REG_BANK,33,66,12,13,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "Bank",IDC_STATIC,29,55,18,8
+    CONTROL         "Bank",IDC_CHECK_INC_REG_BANK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,161,60,33,10
+    LTEXT           "Inc",IDC_STATIC,161,26,11,8
+END
+
+IDD_MACHINEPATHSEGMENTS DIALOG DISCARDABLE  0, 0, 327, 332
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Machine Path Segment Tracking Settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Constant Time Step",IDC_RADIO1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,14,23,78,10
+    CONTROL         "Poly Fit",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,14,66,
+                    39,12
+    EDITTEXT        IDC_EDIT1,170,26,40,12,ES_AUTOHSCROLL | WS_GROUP
+    EDITTEXT        IDC_EDIT2,170,67,40,12,ES_RIGHT | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,270,311,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,211,311,50,14
+    GROUPBOX        "",IDC_STATIC,7,46,313,9
+    LTEXT           "Step Time (sec)",IDC_STATIC,102,26,50,8
+    LTEXT           "Fit Tolerence (mm)",IDC_STATIC,101,69,59,8
+    GROUPBOX        "Controller Tracking Parameters",IDC_STATIC,7,145,313,
+                    126
+    EDITTEXT        IDC_EDIT3,62,165,40,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,112,165,40,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,162,165,40,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    RTEXT           "wtPos",IDC_STATIC,69,156,25,8
+    RTEXT           "wtVel",IDC_STATIC,123,156,18,8
+    RTEXT           "wtAcc",IDC_STATIC,170,156,21,8
+    EDITTEXT        IDC_EDIT6,62,221,40,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT7,112,221,40,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT8,162,221,40,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    RTEXT           "wtPosVel",IDC_STATIC,66,212,31,8
+    RTEXT           "wtVelAcc",IDC_STATIC,118,212,31,8
+    RTEXT           "wtPosAcc",IDC_STATIC,164,212,33,8
+    LTEXT           "Step",IDC_STATIC,15,226,16,8
+    LTEXT           "Continuous",IDC_STATIC,15,168,36,8
+    PUSHBUTTON      "Defaults",ID_DEFAULT,125,311,50,14
+    CONTROL         "Allow Acceleration Stepping",IDC_ALLOWACCSTEP,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,62,198,104,10
+    GROUPBOX        "Segment Length Method",IDC_STATIC,7,7,313,90
+END
+
+IDD_MACHINEPROPERTIES DIALOG DISCARDABLE  0, 0, 361, 321
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Machine Controller Properties"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_RESTIME,102,20,59,13,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_RESACC,270,52,79,13,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_RESVEL,270,36,79,13,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_RESPOS,270,20,79,13,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_VELX,102,119,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_VELY,148,119,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_VELZ,194,119,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ACCX,102,135,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ACCY,148,135,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ACCZ,194,135,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_JERKX,102,151,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_JERKY,148,151,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_JERKZ,194,151,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SPEEDXY,102,167,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SPEEDXYZ,102,183,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FEEDRATE,102,199,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_CUSPANGLE,161,215,40,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Defaults",ID_DEFAULT,169,300,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,241,300,50,14
+    DEFPUSHBUTTON   "OK",IDOK,304,300,50,14
+    LTEXT           "Time (sec)",IDC_STATIC,17,22,34,8
+    LTEXT           "Acceleration (mm/sec^2)",IDC_STATIC,181,54,80,8
+    GROUPBOX        "Controller Integer Resolutions",IDC_STATIC,9,7,345,84
+    LTEXT           "Velocity (mm/sec)",IDC_STATIC,181,38,57,8
+    LTEXT           "Position (mm)",IDC_STATIC,181,22,42,8
+    LTEXT           "Velocity (mm/s)",IDC_STATIC,17,121,49,8
+    LTEXT           "Acceleration (mm/s^2)",IDC_STATIC,17,137,72,8
+    LTEXT           "Jerk (mm/s^3)",IDC_STATIC,17,153,46,8
+    LTEXT           "X",IDC_STATIC,118,108,8,8
+    LTEXT           "Y",IDC_STATIC,164,108,8,8
+    LTEXT           "Z",IDC_STATIC,210,108,8,8
+    LTEXT           "XY Speed (mm/s)",IDC_STATIC,17,169,56,8
+    LTEXT           "XYZ Speed (mm/s)",IDC_STATIC,17,185,61,8
+    GROUPBOX        "Maximum Machine Values",IDC_STATIC,9,100,345,135
+    LTEXT           "Cusp segments with change above (deg)",IDC_STATIC,17,
+                    217,130,8
+    LTEXT           "Feed Rate (mm/s)",IDC_STATIC,17,201,58,8
+    EDITTEXT        IDC_EDIT_DPOSPERREV,102,36,59,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COUNTSPERREV,102,52,59,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_POSTRACKFRACTBITS,102,68,59,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "dPos per rev (mm)",IDC_STATIC,17,38,58,8
+    LTEXT           "Counts per rev",IDC_STATIC,17,54,47,8
+    LTEXT           "PosTrack Fraction Bits",IDC_STATIC,17,70,72,8
+    CONTROL         "Apply Position Correction",IDC_CHECK_USE_POS_CORR,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,17,285,94,10
+    CONTROL         "X",IDC_CHECK_USE_POS_CORRX,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,120,285,21,10
+    CONTROL         "Y",IDC_CHECK_USE_POS_CORRY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,166,285,21,10
+    CONTROL         "Z",IDC_CHECK_USE_POS_CORRZ,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,285,21,10
+    EDITTEXT        IDC_EDIT_BLPOSX,102,250,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_BLPOSY,148,250,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_BLPOSZ,194,250,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_BLNEGX,102,266,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_BLNEGY,148,266,40,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_BLNEGZ,194,266,40,13,ES_AUTOHSCROLL
+    LTEXT           "Backlash positive (mm)",IDC_STATIC,17,252,73,8
+    LTEXT           "Backlash negative (mm)",IDC_STATIC,17,268,76,8
+    CONTROL         "Apply Backlash Correction",IDC_CHECK_USE_BL_CORR,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,17,238,99,10
+END
+
+IDD_PATHPOSITION DIALOGEX 500, 30, 352, 26
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Path Segment Position"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_COMBO1,56,12,48,54,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,114,12,40,12,ES_RIGHT | ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,155,10,13,14
+    SCROLLBAR       IDC_SCROLLBAR1,170,12,132,12,WS_TABSTOP
+    PUSHBUTTON      "View All",IDC_BUTTON1,309,9,36,15
+    EDITTEXT        IDC_EDIT2,7,12,40,12,ES_RIGHT | ES_AUTOHSCROLL
+    LTEXT           "First Node",IDC_STATIC,7,2,33,8
+    LTEXT           "Number Segments",IDC_STATIC,111,2,59,8
+    LTEXT           "First Segment",IDC_STATIC,57,2,44,8
+END
+
+IDD_ANIMATIONSETTINGS DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Animation Settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    EDITTEXT        IDC_EDIT_RATE,41,7,40,14,ES_AUTOHSCROLL
+    LTEXT           "Rate",IDC_STATIC,7,9,16,8
+END
+
+IDD_CONTROLSTATUS DIALOG DISCARDABLE  360, 400, 377, 289
+STYLE WS_CHILD
+FONT 10, "Courier"
+BEGIN
+    GROUPBOX        "Buffers",IDC_STATIC,7,176,363,106
+    LTEXT           "Position",IDC_STATIC,115,16,33,8
+    EDITTEXT        IDC_EDIT_MACHINE_POS,76,26,135,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Velocity",IDC_STATIC,259,16,33,8
+    EDITTEXT        IDC_EDIT_MACHINE_VEL,220,26,135,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Accel Seg",IDC_STATIC,297,187,37,8
+    LTEXT           "Path Seg",IDC_STATIC,200,187,33,8
+    EDITTEXT        IDC_EDIT_ACCSEG_TI,76,221,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_ACCSEG_PSI,176,221,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Path Time",IDC_STATIC,100,187,37,8
+    EDITTEXT        IDC_EDIT_ACCSEG_TF,120,221,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_ACCSEG_PSF,220,221,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_ACCSEG_ASI,276,221,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_ACCSEG_ASF,320,221,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Initial",IDC_STATIC,86,197,17,8
+    LTEXT           "Final",IDC_STATIC,130,197,21,8
+    LTEXT           "Initial",IDC_STATIC,186,197,17,8
+    LTEXT           "Final",IDC_STATIC,230,197,21,8
+    LTEXT           "Initial",IDC_STATIC,286,197,17,8
+    LTEXT           "Final",IDC_STATIC,330,197,21,8
+    LTEXT           "Accel Segments",IDC_STATIC,10,223,57,8
+    LTEXT           "Drive Limits",IDC_STATIC,10,237,56,8
+    EDITTEXT        IDC_EDIT_LIMIT_TI,76,235,40,13,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_LIMIT_PSI,176,235,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_LIMIT_TF,120,235,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_LIMIT_PSF,220,235,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Machine",IDC_STATIC,10,209,28,8
+    EDITTEXT        IDC_EDIT_MACHINE_TI,76,207,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MACHINE_TF,120,207,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MACHINE_ASI,276,207,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MACHINE_ASF,320,207,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Current",IDC_STATIC,10,28,29,8
+    GROUPBOX        "Machine",IDC_STATIC,7,7,363,152
+    LTEXT           "Path",IDC_STATIC,10,251,54,8
+    EDITTEXT        IDC_EDIT_PATH_TI,76,249,40,13,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_PATH_PSI,176,249,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_PATH_TF,120,249,40,13,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_PATH_PSF,220,249,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Path Tracker",IDC_STATIC,10,42,49,8
+    LTEXT           "Error",IDC_STATIC,10,56,21,8
+    EDITTEXT        IDC_EDIT_MACHINE_POSTRACK,76,40,135,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MACHINE_VELTRACK,220,40,135,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MACHINE_POSERROR,76,54,135,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MACHINE_VELERROR,220,54,135,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Path Time",IDC_STATIC,10,113,37,8
+    EDITTEXT        IDC_EDIT_MACHINE_PATHTIME,155,110,56,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MACHINE_PATHSTEP,76,110,56,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MACHINE_POSERROR2,76,68,135,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "PWM Voltage",IDC_STATIC,10,70,45,8
+    LTEXT           "Measured Voltage",IDC_STATIC,10,84,65,8
+    LTEXT           "Measured Current",IDC_STATIC,10,98,65,8
+    EDITTEXT        IDC_EDIT_MACHINE_POSERROR3,76,82,135,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_MACHINE_POSERROR4,76,96,135,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_SENDBYTES DIALOG DISCARDABLE  0, 0, 131, 146
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Send Bytes"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Send",IDSEND,74,28,50,14
+    PUSHBUTTON      "Close",IDCANCEL,74,125,50,14
+    LISTBOX         IDC_LIST1,7,7,49,132,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,75,7,49,14,ES_AUTOHSCROLL
+END
+
+IDD_MANUALCONTROL DIALOG DISCARDABLE  0, 0, 331, 222
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "-X",IDC_BUTTON_DECX,47,41,18,16,BS_BITMAP
+    PUSHBUTTON      "+X",IDC_BUTTON_INCX,87,41,18,16,BS_BITMAP
+    PUSHBUTTON      "+Y",IDC_BUTTON_INCY,67,23,18,16,BS_BITMAP
+    PUSHBUTTON      "-Y",IDC_BUTTON_DECY,67,59,18,16,BS_BITMAP
+    PUSHBUTTON      "Stop",IDC_BUTTON_STOPXY,67,41,18,16,BS_BITMAP
+    PUSHBUTTON      "+Z",IDC_BUTTON_INCZ,121,23,18,16,BS_BITMAP
+    PUSHBUTTON      "-Z",IDC_BUTTON_DECZ,121,59,18,16,BS_BITMAP
+    PUSHBUTTON      "Stop",IDC_BUTTON_STOPZ,121,41,18,16,BS_BITMAP
+    PUSHBUTTON      "",IDC_BUTTON_IXIY,87,23,18,16,BS_BITMAP
+    PUSHBUTTON      "",IDC_BUTTON_IXDY,87,59,18,16,BS_BITMAP
+    PUSHBUTTON      "",IDC_BUTTON_DXDY,47,59,18,16,BS_BITMAP
+    PUSHBUTTON      "",IDC_BUTTON_DXIY,47,23,18,16,BS_BITMAP
+    LTEXT           "Z axis",IDC_STATIC,121,9,20,8
+    LTEXT           "X-Y Plane",IDC_STATIC,62,9,32,8
+    PUSHBUTTON      "Set Parameters",IDC_BUTTON_SETPARAM,268,83,56,14
+    CONTROL         "Enable Machine",IDC_BUTTON_ENABLE,"Button",
+                    BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,268,6,56,14
+    CONTROL         "X",IDC_BUTTON_ENABLEX,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,266,25,18,14
+    CONTROL         "Y",IDC_BUTTON_ENABLEY,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,286,25,18,14
+    CONTROL         "Z",IDC_BUTTON_ENABLEZ,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,306,25,18,14
+    PUSHBUTTON      "Move To",IDC_BUTTON_MOVETOPOS,179,154,38,14,WS_GROUP
+    COMBOBOX        IDC_COMBO_POSNEW,6,182,167,43,CBS_DROPDOWNLIST | 
+                    CBS_AUTOHSCROLL | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Velocity",IDC_STATIC,181,86,26,8
+    PUSHBUTTON      "Zero Pos Error",IDC_BUTTON_MATCHTRACKER,268,62,56,14
+    LTEXT           "Position",IDC_STATIC,181,140,26,8
+    LTEXT           "Pos Error",IDC_STATIC,181,102,30,8
+    EDITTEXT        IDC_EDIT_POSNEWX,6,154,54,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_POSNEWY,63,154,54,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_POSNEWZ,119,154,54,14,ES_RIGHT | ES_AUTOHSCROLL
+    LTEXT           "Location",IDC_STATIC,181,184,28,8
+    CONTROL         "Use X",IDC_BUTTON_USEX,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,17,171,35,10
+    CONTROL         "Use Y",IDC_BUTTON_USEY,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,73,171,35,10
+    CONTROL         "Use Z",IDC_BUTTON_USEZ,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | WS_TABSTOP,129,171,35,10
+    EDITTEXT        IDC_EDIT_POSERRORX,6,100,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_POSERRORY,63,100,54,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_POSERRORZ,119,100,54,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_POSCURRX,6,138,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_POSCURRY,63,138,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_POSCURRZ,119,138,54,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_VELCURRX,6,84,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_VELCURRY,63,84,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_VELCURRZ,119,84,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Feed Foward",IDC_STATIC,268,104,42,8
+    LTEXT           "Feed Back",IDC_STATIC,268,128,36,8
+    COMBOBOX        IDC_COMBO_FEEDFOWARD,264,113,60,72,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_FEEDBACK,264,137,60,68,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_ERRORLAST,6,201,168,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Last Error",IDC_STATIC,179,206,31,8
+    LTEXT           "Position Servo",IDC_STATIC,181,123,46,8
+    EDITTEXT        IDC_EDIT_POSSERVOX,6,121,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_POSSERVOY,63,121,54,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_POSSERVOZ,119,121,54,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Probe Sampler",IDC_BUTTON_PROBESAMPLER,268,165,56,14
+END
+
+IDD_MACHINELIMITS DIALOG DISCARDABLE  0, 0, 300, 175
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Machine Limits"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,243,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,243,24,50,14
+    EDITTEXT        IDC_EDIT_MINX,44,57,34,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MAXX,96,57,34,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MAXY,70,40,34,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MINY,70,74,34,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MINZ,180,74,34,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MAXZ,180,40,34,14,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ABSMINZ,180,91,34,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABSMAXZ,180,23,34,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABSMINX,7,57,34,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABSMINY,70,91,34,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABSMAXY,70,23,34,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ABSMAXX,133,57,34,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER
+    LTEXT           "Y max",IDC_STATIC,47,25,20,8
+    LTEXT           "Y min",IDC_STATIC,47,93,18,8
+    LTEXT           "X max",IDC_STATIC,15,48,20,8
+    LTEXT           "X min",IDC_STATIC,141,48,18,8
+    LTEXT           "Z max",IDC_STATIC,157,25,20,8
+    LTEXT           "Z min",IDC_STATIC,157,93,18,8
+    EDITTEXT        IDC_EDIT_CURRENTBASEZ,174,140,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Current Base Z",IDC_STATIC,121,142,48,8
+    EDITTEXT        IDC_EDIT_TOPOFSTOCKZ,174,119,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Top of Stock Z",IDC_STATIC,121,121,49,8
+    EDITTEXT        IDC_EDIT_STOCKTHICKNESS,226,128,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Stock Thickness",IDC_STATIC,220,118,54,8
+    CONTROL         "Top of Stock",IDC_CHECK_SETMINZ_TOS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,224,75,57,10
+    EDITTEXT        IDC_EDIT_TOSCLEARANCE,226,95,40,14,ES_AUTOHSCROLL
+    LTEXT           "+ Clearance",IDC_STATIC,226,85,39,8
+END
+
+IDD_DIMENSIONS DIALOG DISCARDABLE  0, 0, 226, 164
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dimensions"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,169,143,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,113,143,50,14
+    EDITTEXT        IDC_EDIT_DIA1,108,18,51,14,ES_AUTOHSCROLL
+    LTEXT           "Val1",IDC_STATIC_VAL1,7,21,96,8
+    EDITTEXT        IDC_EDIT_DIA2,108,33,51,14,ES_AUTOHSCROLL
+    LTEXT           "Val2",IDC_STATIC_VAL2,7,36,96,8
+    CTEXT           "Heading",IDC_STATIC_HEADING,7,6,212,8
+    PUSHBUTTON      "Reset",ID_DEFAULT,55,143,50,14
+    EDITTEXT        IDC_EDIT_FINISHRADIUS,108,92,51,14,ES_AUTOHSCROLL
+    LTEXT           "Finish Radius",IDC_STATIC_FINISHRADIUS,56,95,47,8
+    EDITTEXT        IDC_EDIT_FINISHDEPTH,108,107,51,14,ES_AUTOHSCROLL
+    LTEXT           "Finish Depth",IDC_STATIC_FINISHDEPTH,56,110,50,8
+    CONTROL         "Finish Cut",IDC_CHECK_FINISHCUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,56,82,47,10
+    EDITTEXT        IDC_EDIT_DIA3,108,48,51,14,ES_AUTOHSCROLL
+    LTEXT           "Val3",IDC_STATIC_VAL3,8,51,96,8
+    EDITTEXT        IDC_EDIT_DIA4,108,63,51,14,ES_AUTOHSCROLL
+    LTEXT           "Val4",IDC_STATIC_VAL4,8,66,96,8
+END
+
+IDD_SETTOOL DIALOG DISCARDABLE  0, 0, 284, 270
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Set Tooling Dimensions"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         196,IDC_STATIC,"Static",SS_BITMAP,15,16,255,220
+    DEFPUSHBUTTON   "OK",IDOK,227,249,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,166,249,50,14
+    LTEXT           "Tool Diameter",IDC_STATIC,186,93,45,8
+    EDITTEXT        IDC_EDIT_DIATOOL,185,103,42,12,ES_RIGHT | ES_AUTOHSCROLL
+    LTEXT           "Mount to Axis Head",IDC_STATIC,7,37,63,8
+    EDITTEXT        IDC_EDIT_MOUNT2ZAXISHEAD,74,34,40,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Chuck to Mount",IDC_STATIC,7,62,52,8
+    EDITTEXT        IDC_EDIT_CHUCK2MOUNT,74,59,40,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Tip to Chuck",IDC_STATIC,7,83,42,8
+    EDITTEXT        IDC_EDIT_TIP2CHUCK,74,80,40,12,ES_RIGHT | ES_AUTOHSCROLL
+    LTEXT           "Stock Top to Tip",IDC_STATIC,7,153,54,8
+    EDITTEXT        IDC_EDIT_STOCKTOP2TIP,74,150,40,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Base Top to Tip",IDC_STATIC,7,167,52,8
+    EDITTEXT        IDC_EDIT_BASETOP2TIP,74,164,40,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Vacuum Board",IDC_STATIC,7,206,48,8
+    EDITTEXT        IDC_EDIT_VACUUMBOARD,64,203,40,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Base Board",IDC_STATIC,7,220,38,8
+    EDITTEXT        IDC_EDIT_BASEBOARD,64,217,40,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Axis Pos",IDC_STATIC,161,136,28,8
+    EDITTEXT        IDC_EDIT_AXISPOS,214,133,40,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Axis Pos Adjust",IDC_STATIC,161,150,49,8
+    EDITTEXT        IDC_EDIT_AXISADJUST,214,147,40,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Base to Axis Head",IDC_STATIC,161,165,59,8
+    EDITTEXT        IDC_EDIT_BASE2ZAXISHEAD,227,162,40,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Probe Reading",IDC_STATIC,7,125,48,8
+    EDITTEXT        IDC_EDIT_PROBEREADING,111,122,40,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Probe Adjust",IDC_STATIC,7,111,41,8
+    EDITTEXT        IDC_EDIT_PROBEADJUST,111,108,40,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    CONTROL         "Probe On Stock?",IDC_CHECK_PROBEONSTOCK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,138,182,71,10
+    LTEXT           "Stock",IDC_STATIC,7,192,20,8
+    EDITTEXT        IDC_EDIT_STOCK,64,189,40,12,ES_RIGHT | ES_AUTOHSCROLL
+    CONTROL         "Lock fixed values",IDC_CHECK_LOCKFIXEDVALUES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,240,71,10
+END
+
+IDD_PROBESAMPLE DIALOG DISCARDABLE  0, 0, 288, 237
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Position Tip Sample",IDC_STATIC,185,57,63,8
+    EDITTEXT        IDC_EDIT_POSPROBEX,12,55,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_POSPROBEY,70,55,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_POSPROBEZ,126,55,54,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Position Servo",IDC_STATIC,185,25,46,8
+    EDITTEXT        IDC_EDIT_POSSERVOX,12,23,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_POSSERVOY,70,23,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_POSSERVOZ,126,23,54,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_PROBEREADINGZ,126,7,54,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Probe Reading",IDC_STATIC,185,9,48,8
+    PUSHBUTTON      "Recalibrate Probe",IDC_BUTTON_RECALPROBE,125,121,71,14
+    CONTROL         "Log Samples",IDC_CHECK_LOGSAMPLES,"Button",
+                    BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,12,
+                    155,61,14
+    CONTROL         "Sample Probe",IDC_CHECK_SAMPLEPROBE,"Button",
+                    BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,12,105,61,14
+    CONTROL         "Send Samples",IDC_CHECK_SENDSAMPLES,"Button",
+                    BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,12,121,61,14
+    COMBOBOX        IDC_COMBO_LOGFILE,179,155,96,57,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "To File",IDC_STATIC,151,158,22,8
+    EDITTEXT        IDC_EDIT_AXISHEAD2TIP,235,74,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Axis Head to Tip retracted",IDC_STATIC,126,77,83,8
+    CONTROL         "Lock fixed values",IDC_CHECK_LOCKFIXEDVALUES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,219,71,10
+    EDITTEXT        IDC_EDIT_STOPPROBEEXT,235,90,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Stop if Probe extension less than",IDC_STATIC,126,93,
+                    104,8
+    CONTROL         "Use Position Correction",IDC_CHECK_USE_POS_CORR,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,76,89,10
+    LTEXT           "Position Tip Extended",IDC_STATIC,184,41,70,8
+    EDITTEXT        IDC_EDIT_POSCURRX,12,39,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_POSCURRY,70,39,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_POSCURRZ,126,39,54,14,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_MAXPROBEEXT,235,106,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Maximum Probe extension",IDC_STATIC,126,109,83,8
+    EDITTEXT        IDC_EDIT_MINDISTTOLOG,235,172,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ANGLECHANGEDETECT,235,188,40,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Minimum distance to log",IDC_STATIC,151,174,76,8
+    LTEXT           "Angle change to detect",IDC_STATIC,151,190,75,8
+    CONTROL         "Increment file name",IDC_CHECK_INCFILENAME,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,174,77,10
+    GROUPBOX        "Sample Logging",IDC_STATIC,7,142,274,69
+    CONTROL         "X",IDC_CHECK_USE_POS_CORRX,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,12,89,21,10
+    CONTROL         "Y",IDC_CHECK_USE_POS_CORRY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,44,89,21,10
+    CONTROL         "Z",IDC_CHECK_USE_POS_CORRZ,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,76,89,21,10
+END
+
+IDD_MovementAcc DIALOG DISCARDABLE  0, 0, 270, 174
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,213,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,213,24,50,14
+    EDITTEXT        IDC_EDIT_ACCRAMPVELCHANGE,75,113,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Velocity Change",IDC_STATIC,15,116,52,8
+    LTEXT           "Accel Ramp Rate",IDC_STATIC,15,74,57,8
+    LTEXT           "Accel Ramp Time",IDC_STATIC,15,88,57,8
+    LTEXT           "Accel Hold Time",IDC_STATIC,15,102,53,8
+    EDITTEXT        IDC_EDIT_ACCRAMPRATE,75,72,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ACCRAMPTIME,75,85,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ACCRAMPHOLDTIME,75,99,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Accel Step",IDC_STATIC,131,88,36,8
+    LTEXT           "Accel Hold Time",IDC_STATIC,131,102,53,8
+    EDITTEXT        IDC_EDIT_ACCSTEP,187,85,40,13,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    EDITTEXT        IDC_EDIT_ACCSTEPHOLDTIME,187,99,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_ACCSTEPVELCHANGE,187,113,40,13,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    LTEXT           "Velocity Change",IDC_STATIC,131,116,52,8
+    GROUPBOX        "",IDC_STATIC,7,64,111,67
+    GROUPBOX        "",IDC_STATIC,125,64,107,67
+    CONTROL         "Ramp Acceleration",IDC_RADIO_ACCTYPE1,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,21,56,76,10
+    CONTROL         "Step Acceleration",IDC_RADIO_ACCTYPE2,"Button",
+                    BS_AUTORADIOBUTTON,139,56,72,10
+END
+
+IDD_GENERALOPTIONS DIALOG DISCARDABLE  0, 0, 193, 247
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "General Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,142,226,44,14
+    PUSHBUTTON      "Cancel",IDCANCEL,86,226,44,14
+    CONTROL         "Smooth Segments",IDC_CHECK_SMOOTH_SEGS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,33,73,10
+    CONTROL         "Add Joining Tabs",IDC_CHECK_ADD_JOINING_TABS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,138,71,10
+    EDITTEXT        IDC_EDIT_HEIGHT,99,151,34,12,ES_RIGHT | ES_AUTOHSCROLL
+    LTEXT           "Height",IDC_STATIC,12,153,22,8
+    GROUPBOX        "Joining Tabs",IDC_STATIC,7,127,131,84
+    LTEXT           "Path Options",IDC_STATIC,7,4,42,8
+    EDITTEXT        IDC_EDIT_WIDTH,99,165,34,12,ES_RIGHT | ES_AUTOHSCROLL
+    LTEXT           "Width",IDC_STATIC,12,167,20,8
+    EDITTEXT        IDC_EDIT_RAMP_LENGTH,99,178,34,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Ramp Length",IDC_STATIC,12,181,44,8
+    EDITTEXT        IDC_EDIT_LOW_PASS_MAX,99,193,34,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Low Pass Max.",IDC_STATIC,12,194,49,8
+    GROUPBOX        "Path Smoothing",IDC_STATIC,7,22,131,89
+    EDITTEXT        IDC_EDIT_SEGTOL,99,46,34,12,ES_RIGHT | ES_AUTOHSCROLL
+    LTEXT           "Segment tolerance",IDC_STATIC,12,48,60,8
+    EDITTEXT        IDC_EDIT_SEGTOLDIRSET,99,60,34,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Segment tolerance dir set *11/8",IDC_STATIC,12,62,87,17
+    EDITTEXT        IDC_EDIT_SEGSTRAIGHTMIN,99,78,34,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Segment straight min",IDC_STATIC,12,80,66,8
+    EDITTEXT        IDC_EDIT_SEGANGCUSP,99,92,34,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Cusp angle min",IDC_STATIC,12,94,49,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
+    END
+
+    IDD_COMMSDATA, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 428
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_PORTSELECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 8
+        RIGHTMARGIN, 121
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_DIAGNOSE, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 253
+        VERTGUIDE, 16
+        VERTGUIDE, 64
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 140
+        HORZGUIDE, 23
+        HORZGUIDE, 26
+        HORZGUIDE, 50
+    END
+
+    IDD_MACHINEPATHSEGMENTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 320
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 325
+    END
+
+    IDD_MACHINEPROPERTIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 9
+        RIGHTMARGIN, 354
+        VERTGUIDE, 17
+        VERTGUIDE, 102
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 314
+    END
+
+    IDD_PATHPOSITION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 345
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 24
+    END
+
+    IDD_ANIMATIONSETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_CONTROLSTATUS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 370
+        VERTGUIDE, 10
+        VERTGUIDE, 76
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 282
+    END
+
+    IDD_SENDBYTES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 124
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+
+    IDD_MANUALCONTROL, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 324
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 215
+    END
+
+    IDD_MACHINELIMITS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 168
+    END
+
+    IDD_DIMENSIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 219
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 157
+    END
+
+    IDD_SETTOOL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 277
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 263
+    END
+
+    IDD_PROBESAMPLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 281
+        VERTGUIDE, 12
+        VERTGUIDE, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 229
+    END
+
+    IDD_MovementAcc, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 263
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 167
+    END
+
+    IDD_GENERALOPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 186
+        VERTGUIDE, 12
+        VERTGUIDE, 99
+        VERTGUIDE, 138
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 240
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""res\\CNCControl.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_MANUALCONTROL DLGINIT
+BEGIN
+    IDC_COMBO_FEEDFOWARD, 0x403, 9, 0
+0x6556, 0x6f6c, 0x6963, 0x7974, "\000" 
+    IDC_COMBO_FEEDFOWARD, 0x403, 5, 0
+0x7546, 0x6c6c, "\000" 
+    IDC_COMBO_FEEDFOWARD, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_COMBO_FEEDBACK, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_COMBO_FEEDBACK, 0x403, 14, 0
+0x4950, 0x2d44, 0x6f70, 0x2073, 0x7265, 0x6f72, 0x0072, 
+    IDC_COMBO_FEEDBACK, 0x403, 14, 0
+0x4950, 0x2d44, 0x6576, 0x206c, 0x7265, 0x6f72, 0x0072, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_PATHSPEED           "\nPath Speeds"
+    IDR_LOGVIEW             "\nEvent Log\n\nEvent Log (*.log)\n.log"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "CNCControl"
+    IDR_PARAMVIEW           "\nController Parameters"
+    IDR_COMMSVIEW           "\nComms Data Transfer"
+    IDR_PATH                "\nPath Data\nMachine Path\nMachine Path (*.pth)\n.pth"
+    IDR_GRAPHVIEW           "\nGraph View"
+    IDR_PATHNCI             "\nMasterCAM Path\n\nMasterCAM Path (*.nci)\n.nci"
+    IDR_MANUALCONTVIEW      "\nManual Controller"
+    IDR_MACHINESTATUSVIEW   "\nMachine Status"
+    IDR_PROBESAMPLEVIEW     "\nProbe Sample Controller"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "CNCControl"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+    ID_INDICATOR_POSITION   "                                     "
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Standard toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+    IDW_VIEW_BAR            "View zoom toolbar"
+    IDW_MOTIONPLOT_BAR      "Path speed plot control toolbar"
+    IDW_VIEWDIR_BAR         "View direction toolbar"
+    IDW_PLAYER_BAR          "Path animation toolbar"
+    IDW_PATH_BAR            "Path line and node display toolbar"
+    IDW_PATHPOSITION_BAR    "Path position toolbar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_PARAMETERS      "View and edit controller parameters"
+    ID_MACHINE_OPENCOMMUNICATIONS 
+                            "Establish communications with CNC controller"
+    ID_MACHINE_REQUESTALLPARAMETERS 
+                            "Update local copy of all controller parameters"
+    ID_MACHINE_SENDALLPARAMETERS "Set controller parameters from local copy"
+    ID_OPTIONS_PORTSELECT   "Select serial port"
+    ID_OPTIONS_PORTCONFIG   "Set communication port options"
+    ID_MACHINE_CLOSECOMMUNICATIONS "Close communications with CNC controller"
+    ID_MACHINE_OPENCLOSECOMMUNICATIONS 
+                            "Open or Close communications with CNC controller"
+    ID_MACHINE              "Set to loop back test serial port"
+    ID_MACHINE_LOOPBACK     "Internally connects port receiver to transmitter"
+    ID_MACHINE_SENDPARAMETER 
+                            "Set selected controller parameter from local copy"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MACHINE_REQUESTPARAMETER 
+                            "Update local copy of selected controller parameter"
+    ID_VIEW_PARAMETERS_GENERAL "Open a general parameters window"
+    ID_VIEW_PARAMETERS_AXIS "Open an axis parameters window"
+    ID_VIEW_PARAMETERS_ALL  "Open general and axis parameter windows"
+    ID_PATH_SENDNEXTPATHDATA "Send next"
+    ID_PATH_SENDALLPATHDATA "Start sending all path"
+    ID_PATH_REQUESTNEXTPATHDATA "Request next"
+    ID_PATH_REQUESTALLPATHDATA "Request all"
+    ID_MACHINE_DIAGNOSEBOX  "Diagnose controllers memory"
+    ID_PATH_FINDSPEEDS      "Process path and find speed control limits\nFind Speeds"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SHOWX                "Toggle X axis plot\nX axis"
+    ID_SHOWY                "Toggle Y axis plot\nY axis"
+    ID_SHOWZ                "Toggle Z axis plot\nZ axis"
+    ID_SHOWPOS              "Toggle Position plot\nPosition"
+    ID_SHOWVEL              "Toggle Velocity plot\nVelocity"
+    ID_SHOWACC              "Toggle Acceleration plot\nAcceleration"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SHOWJERK             "Toggle Jerk plot\nJerk"
+    ID_SHOWREQUESTEDSEGS    "Toggle Requested Segments plot\nRequested Segments"
+    ID_SHOWACTUALSEGS       "Toggle Actual Achieved Segments plot\nActual Segments"
+    ID_SHOWACTUALreqSEGS    "Toggle Requested Segments from controller plot\nRequested Segments"
+    ID_VIEW_ZOOMOUT         "\nZoom Out"
+    ID_VIEW_ZOOMALL         "Fit Plots to window\nFit"
+    ID_VIEW_ZOOM11          "Zoom to true size\nTrue Size"
+    ID_SHOWENDNODES         "Toggle End Nodes\nEnd Nodes"
+    ID_SHOWCTRLNODES        "Toggle Control Nodes\nControl Nodes"
+    ID_VIEW_ZOOMIN          "\nZoom In"
+    ID_MACHINE_PROPERTIES   "Set Machine Properties"
+    ID_PATH_SEGMENTTRACKING "Path segment tracking settings\nPath segment settings"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_PREFERENCES_MACHINEPATHSEGMENTS "Controller path tracking settings"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_STORE_LOC       "Store view focus and zoom to memory\nStore view to memory"
+    ID_VIEW_SET_LOC         "Set view focus and zoom from memory\nSet view from memory"
+    ID_VIEW_PREV            "Move to previous view location\nPrevious view"
+    ID_VIEW_NEXT            "Move to next view location\nNext view"
+    ID_VIEWDIR_X            "View from X axis direction\nView from X axis"
+    ID_VIEWDIR_Y            "View from Y axis direction\nView from Y axis"
+    ID_VIEWDIR_Z            "View from Z axis direction\nView from Z axis"
+    ID_VIEWDIR_ISO          "View from standard Isometric direction\nView Isometric"
+    ID_PATH_ANIMATE         "Show tool path animation in real time\nAnimate path movement"
+    ID_PATH_ANIMATE_STOP    "Stop Animation\nStop"
+    ID_PATH_ANIMATE_START   "Start Animation\nStart"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_PATH_ANIMATE_PAUSE   "Pause Animation\nPause"
+    ID_PATH_DOIT            "just do it"
+    ID_VIEW_SHOWREGION      "Show region box for 3D views"
+    ID_OPTIONS_SCROLLBARS   "Use scroll bars in windows"
+    ID_VIEWDIR_FLIP         "View from other side\nFlip"
+    ID_PATHCOLORFEEDRATE    "Set color from feedrate\nColor Feedrate"
+    ID_PATHCOLORCURVE       "Set color from curve type\nColor curve type"
+    ID_PATHSHOWORIG         "Show origional curving segments\nShow origionals"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_PATHSHOWFITTED       "Show fitted curves\nShow fitted curves"
+    ID_SHOWCTRLNODELINES    "Toggle Control Node Lines\nControl Node Lines"
+    ID_SHOWBEZIERS          "Show Bezier Lines\nShow Beziers"
+    ID_VIEW_ISOSCALE        "Keep axis scales equal\nISO scaling"
+    ID_ANIMATIONSETTINGS    "Animation Settings\nSettings"
+    ID_MACHINE_SIMULATECONTROLLERRESPONSE 
+                            "Simulate controller response from reflected port data"
+    ID_PATH_SENDSTART       "Start sending path data\nRun path"
+    ID_PATH_SENDNEXT        "Send next path data packet"
+    ID_PATH_SENDSTOP        "Stop sending path data\nStop path"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDC_EDIT_RATE           "Animation Rate\nRate"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_MACHINE_VIEWCOMMSDATA "Shows Comms Data Dialog"
+    ID_MACHINE_SHOWCOMMSDATA "Show Comms Data"
+    ID_MACHINE_LOGCOMMSDATA "Log Comms Data"
+    ID_MACHINE_SENDBYTES    "Sends specific byte/s to machine"
+    ID_PATH_SENDRESET       "Resets path to start\nReset"
+    ID_SENDPKTSTEP          "Step send packets to machine/nStep"
+    ID_SENDPKT              "Send next packet\nStep send"
+    ID_MACHINE_MANUALCONT   "Manual movement controller"
+    ID_PATH_DOHOLEMATRIX    "Add a path to drill a hole matrix"
+    ID_PATH_DOHOLEMATRIXCURVED 
+                            "Add a path to drill a hole matrix with curved moves"
+    ID_PATH_DOBOATSHED      "Add a path to cut a boatshed"
+    ID_PATH_DORECTANGLE     "Add a path to cut a rectangle"
+    ID_PATH_DOCIRCLE        "Add a path to cut a circle"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_PATH_DOBOATSHED1     "Add a path to cut a Boatshed Small"
+    ID_PATH_DOBOATSHED2     "Add a path to cut a Boatshed Medium"
+    ID_PATH_DOBOATSHED3     "Add a path to cut a Boatshed Large"
+    ID_PATH_DOHEART         "Add a path to cut a heart"
+    ID_PATH_DOMINERET       "Add a path to cut a minaret"
+    ID_PATH_DOMINARET       "Add a path to cut a minaret"
+    ID_VIEW_LOG             "Show Event Log"
+    ID_MACHINE_SHOWMACHINESTATUS "Show Controller and Buffer Status"
+    ID_PATH_DOSTARHOLEMATRIX "Vacuum Board Star Array"
+    ID_PATH_HOLEMATRIXSERVOCALIBRATION "Hole Matrix Servo Calibration"
+    ID_PATH_HOLEMATRIXSERVOCAL "Hole Matrix Servo Calibration"
+    ID_PATH_HOLEMATRIXBASESCREWS "Base Screws Array"
+    ID_PATH_HOLEMATRIX      "Hole Matrix"
+    ID_VIEW_TOOLBARS_PATHPOSITION "Path position toolbar"
+    ID_VIEW_PATHPOSITION_BAR "Path position toolbar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_PATH_BASEVACUUMHOSEMATRIX "Base Vacuum Hose Array"
+    ID_PATH_BASEVACUUMHOSESINGLEMATRIX "Base Vacuum Hose Single"
+    ID_PATH_VACUUMBOARDTRENCHING "Vacuum Board Trenching"
+    ID_PATH_BASEVACUUMHOSEARRAY "Base Vacuum Hose Array"
+    ID_PATH_BASEVACUUMHOSESINGLE "Base Vacuum Hose Single"
+    ID_PATH_MANIFOLDVACUUMBOXARRAY "Manifold Vacuum Box Array"
+    ID_PATH_MANIFOLDVACUUMBOXSINGLE "Manifold Vacuum Box Single"
+    ID_MACHINE_SETTOOL      "Set Tool Dimensions\nSetTool"
+    ID_MACHINE_PROBESAMPLE  "Probe sampler controller"
+    ID_PATH_DEPTHCHECK      "Cut a depth check ramp path"
+    ID_OPTIONS_SETTINGS     "General Settings"
+END
+
+#endif    // English (Australia) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "res\CNCControl.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

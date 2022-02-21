@@ -1,0 +1,470 @@
+
+FORMAT:
+  p0x## (Parameter) [#byte signed unsigned min:# max:# ro]
+  Parameter Description
+
+default style is: [2byte signed]
+
+
+[GENERALPARAM]
+
+p0x00 RegisterLocation [1byte max:ff]
+Read/write register, L = value, H = reg, uses Axis access for RAM bank
+
+p0x01 RAMLocationW0 [4byte unsigned]
+Low word of RAM location
+
+p0x02 RAMLocationW1
+High word of RAM location
+
+p0x03 PWMcyclespupdate [unsigned]
+Number of PWM cycles per PWM update (interupt)
+
+p0x04 RealTimeSecW0 [4byte unsigned]
+Time seconds low word (low byte=100th secs, high byte = sec)
+
+p0x05 RealTimeSecW1 [unsigned]
+Time seconds high word
+
+p0x06 MachineDisable [1byte]
+All servo drives control (non-zero = disabled)
+
+p0x07 PathBuffMaxObjs [2byte unsigned]
+Maximum Number of data value objects that will fit in buffer - can set when empty
+
+p0x08 PathBuffNumObjs [2byte unsigned]
+Read returns Number of Data Objects in Path Buffer
+or a Write(n) will erase the most recent n Data Objects (n = -1 resets buffer)
+
+p0x09 PathBuffFreeObjs [2byte unsigned ro]
+Read returns free space in path buffer
+
+p0x0a PathBuffEndSegNum [1byte unsigned ro]
+Returns the segment number of the most recent data object on buffer
+
+p0x0b PathBuffEndTimeW0 [3byte unsigned ro]
+Returns the final time step of the most recent data object on buffer
+
+p0x0c PathBuffEndTimeW1 [ unsignedro]
+Returns the final time step of the most recent data object on buffer
+
+p0x0d PathBuffCurrSegNum [1byte unsigned ro]
+Returns the segment number of the current segment
+
+p0x0e PathBuffCurrTimeW0 [3byte unsigned ro]
+Returns the final time step of the current segment
+
+p0x0f PathBuffCurrTimeW1 [unsigned ro]
+Returns the final time step of the current segment
+
+p0x10 PathReset [1byte]
+Read blank. Set resets & recalculates 1/N, zeros Pos, Vel & Acc Track
+
+p0x11 PathProcess [1byte]
+1 = Process path data, 0 = Stop processing
+
+p0x12 ControlCode [1byte]
+Voltage control method
+	0 = Back EMF, 1 = Feed Foward, 2 = Pos PID, 3 = Feed Foward + Pos PID
+
+p0x13 HandCtrlMove [2byte]
+Hand Controller Movement Code
+
+p0x14 MemorySize [1byte ro]
+Log2 of Expanded Memory size
+
+p SampleBuffMaxObjs [2byte unsigned]
+Number of objects that will fit in sample buffer - can set when empty
+
+p SampleBuffNumObjs [2byte unsigned]
+Read returns Number of Data Objects in Sample Buffer or a Write(n) will erase the most recent n Data Objects (n = -1 resets buffer)
+
+p SampleBuffFreeObjs [2byte unsigned ro]
+Read Number of free Data Object space in Buffer
+
+p PathBuffObjSize [1byte unsigned]
+Path Buffer Object Size
+
+p SampleBuffObjSize [1byte unsigned ro]
+Sample Buffer Object Size
+
+p LogSamplePeriod [1byte unsigned]
+Steps between sampling
+
+p PathControlFlags [1byte]
+Bitwise set Path Contol flags
+
+p CPUStackAvail [1byte ro]
+PIC CPUSTA, STKAV bit should be 1
+
+p PathBuffNumChangeToNotify [1byte]
+Machine will notify PC when number of objects in path buffer changes by this amount
+
+p NoLocatorNotify [1byte]
+Machine will not notify PC of locator changes when non zero
+
+p TimeEndIntMin [1byte]
+Minimum value of TMR3H after interrupt routines
+
+p TimeEndIntMax [1byte]
+Maximum value of TMR3H after interrupt routines
+
+p TimeEndIntOverflowCnt [1byte]
+Count of TMR3 overflows after interrupt routines
+
+p ErrorCount [2byte]
+Count of logged errors
+
+p ErrorFirst [1byte]
+First logged error number
+
+p ErrorLast [1byte]
+Most recently logged error number
+
+p RecentErrorCode [2byte]
+Returns error code in high byte of most recent ref. in low byte
+
+p SendSampleData [1byte]
+Send sample data when available
+
+p LogSamples [1byte]
+Log sample registers 0 & 1 of selected axis,  calculates sample obj size
+
+p SampleRegBytes [1byte]
+Low nibble is Reg0 bytes, High is Reg1
+
+p SampleReg0 [1byte]
+Axis register0 address to sample
+
+p SampleReg1 [1byte]
+Axis register1 address to sample
+
+p SampleParam0 [2byte]
+Axis parameter0 code to sample, offset by high byte (Read returns register not Parameter!)
+
+p SampleParam1 [2byte]
+Axis parameter1 code to sample, offset by high byte (Read returns register not Parameter!)
+
+p MotionUpdateList0 [2byte]
+Param in low byte, bytes low nibble high byte, param byte offset high nibble high byte
+
+p MotionUpdateList1 [2byte]
+Param in low byte, bytes low nibble high byte, param byte offset high nibble high byte
+
+p MotionUpdateList2 [2byte]
+Param in low byte, bytes low nibble high byte, param byte offset high nibble high byte
+
+p MotionUpdateList3 [2byte]
+Param in low byte, bytes low nibble high byte, param byte offset high nibble high byte
+
+p MotionUpdateList4 [2byte]
+Param in low byte, bytes low nibble high byte, param byte offset high nibble high byte
+
+p MotionUpdateList5 [2byte]
+Param in low byte, bytes low nibble high byte, param byte offset high nibble high byte
+
+p MotionUpdateList6 [2byte]
+Param in low byte, bytes low nibble high byte, param byte offset high nibble high byte
+
+p MotionUpdateList7 [2byte]
+Param in low byte, bytes low nibble high byte, param byte offset high nibble high byte
+
+p MotionUpdateNumSeq [1byte]
+Number in motion update sequence
+
+p MotionUpdatePeriod [1byte]
+Steps between sending motion updates
+
+p SendMotionUpdates [1byte]
+Send motion updates flag
+
+p StepCountW0 [4byte unsigned]
+Time step counter, reset at start of path
+
+p StepCountW1 [unsigned]
+Time step counter, reset at start of path
+
+p ServoPowerDisable [1byte]
+Servo driver power control flag (non-zero = disabled)
+
+p StopAllMovement [1byte]
+Set or Get will stop all axis movement
+
+p SetPosTrackToPos [1byte]
+Set will set all PosTracks to current position
+
+p VoltStuckTrig [1byte]
+High byte of voltage to trigger high enough voltage for struck condition
+
+p VelX2StuckTrig [1byte]
+Low byte (high byte 0) of velocity to trigger low enough speed for struck condition
+
+p StuckTimeThreshold [1byte]
+Time (ms) to remain in struck conditon to disable drives
+
+p CurrentSimTrig [1byte]
+High byte of CurrentSim to trigger over current condition
+
+p OverCurrentSimTimeThreshold [1byte]
+Time (ms) to remain in over simulated current conditon to disable drives
+
+p OverILimitTimeThreshold [1byte]
+Time (ms) to remain in current limit conditon to disable drives
+
+p PosErrorLimit [1byte]
+Tracking pos error (while feedback is used) to disable drives (x 0.16mm)
+
+p ErrorAxisLast  [1byte ro]
+Most recently logged error axis
+
+p StopAllMovementSmooth [1byte]
+Set or Get will ramp all axis velocities to zero
+
+p I2CCommand [1byte]
+I2C Tx/Rx Command
+
+p I2CData [2byte]
+I2C data to send or received
+
+p I2CSlaveAddr [1byte]
+I2C slave address
+
+p I2CError [1byte]
+I2C error byte
+
+p I2CStatus [1byte hex]
+I2C status byte
+
+p I2CBaudRate [1byte]
+I2C baud rate SSPADD
+
+p SendProbeSamples [1byte]
+Set to send probe samples
+
+p ProbeSamplePeriod [1byte]
+Time between probe samples (*10ms)
+
+p ProbeRelPosSampleStep [1byte signed]
+Error between last pos and probe sample times
+
+
+
+
+
+
+
+[AXISPARAM]
+
+p0x00 RegisterLocation
+Register Value
+
+p0x01 ControlMode
+Control Mode (position, volt, current, velocity)
+
+p0x02 ChangeMode
+Change Mode (step, ramp)
+
+
+p0x04 PositionW0 [3byte]
+Position low word (um)
+
+p0x05 PositionW1
+Position high word (1 byte)
+
+p0x06 VelX2
+Velocity (*2)
+
+p0x07 Accel
+Acceleration
+
+p0x08 EncOffset
+Encoder offset
+
+p0x09 Encoder
+Encoder
+
+p0x0a Encoder1
+Encoder previous
+
+p0x0b dPos1
+Diff Position
+
+p0x0c dPos2
+Diff Position previous
+
+p PosErrorW0 [3byte]
+Position Error
+
+p PosErrorW1
+Position Error
+
+p0x10 VoltCurr
+Current PWM Voltage
+
+p0x11 VoltNew
+New PWM Voltage
+
+p0x12 VoltMax
+Voltage maximum limit
+
+p0x13 VoltMin
+Voltage minimum limit
+
+p0x14 VoltMeasured
+Measured voltage
+
+p0x15 CurrentMeasured
+Measured current
+
+p PositionMin
+Minimum allowable drive position
+
+p PositionMax
+Maximum allowable drive position
+
+p0x19 AxisControl
+Axis control flags
+
+p0x1a AxisCmd
+Axis command
+
+p0x1b AxisCmdValue
+Axis command value
+
+p0x1c AxisState [1byte ro]
+Axis state
+
+p0x1d AxisDisable [1byte]
+Axis servo drive control (non-zero = disabled)
+
+p AxisLocator [1byte ro]
+Axis Locator state
+
+p AxisState2 [1byte ro]
+Axis state2
+
+p0x20 AccTrackW0 [3byte]
+2 bytes
+p0x21 AccTrackW1
+1 byte
+p0x23 VelTrackX2W0 [4byte]
+2 bytes
+p0x24 VelTrackX2W1
+2 bytes
+p0x26 PosTrackX6W0 [5byte]
+2 bytes
+p0x27 PosTrackX6W1
+2 bytes
+p0x28 PosTrackX6W2
+1 byte
+
+p0x2a dAccStepW0 [3byte]
+2 bytes
+p0x2b dAccStepW1
+1 byte
+
+p0x2c dAccelFactor [1byte]
+Factor applied to path dAccel steps (1 byte)
+
+p0x2d AccelFactor [1byte]
+Factor applied to path Accel step (1 byte)
+
+p OverflowCount [1byte]
+Counts overflows in motion tracking
+
+p OverflowType [1byte]
+Overflow type flags
+
+p0x30 PIDp [2byte]
+PID Proportional coefficent
+
+p0x31 PIDi [2byte]
+PID Intergral coefficent
+
+p0x32 PIDd [2byte]
+PID Derivative coefficent
+
+p0x34 FFVoltPerDir [2byte]
+Feed Foward volts constant for sign(w)
+
+p0x35 FFVoltPerVel [2byte]
+Feed Foward volts per vel (~Motor Back EMF constant)
+
+p0x36 FFVoltPerAcc [2byte]
+Feed Foward volts per accel (~Motor Resistance * Mi / k)
+
+p0x37 FFVoltPerdAcc [2byte]
+Feed Foward volts per change accel (~Motor Inductance * Mi /k)
+
+p PosTrackMax [2byte]
+Maximum for high 2 bytes of path tracking value
+
+p PosTrackMin [2byte]
+Minimum for high 2 bytes of path tracking value
+
+p VelTrackMax [2byte]
+Maximum for high 2 bytes of path tracking value
+
+p VelTrackMin [2byte]
+Minimum for high 2 bytes of path tracking value
+
+p AccTrackMax [2byte]
+Maximum for high 2 bytes of path tracking value
+
+p AccTrackMin [2byte]
+Minimum for high 2 bytes of path tracking value
+
+p LogAxisSamples [1byte]
+Log axis sample registers - can only change when not logging
+
+p NegateDirection [1byte]
+Reverses axis position direction
+
+p NoPositionFeedback [1byte]
+Set to ignore axis position error in feedback control
+
+p PosErrorMax [2byte]
+Maximum position error, reset when read
+
+p PosErrorMin [2byte]
+Minimum position error, reset when read
+
+p AxisLocated [1byte]
+Set by PC when axis position has been set from a locator reference
+
+p LocatorBlockDistPos [2byte]
+Blocks in Positive direction above this disable machine (2 high bytes of pos), locator 1&2
+
+p LocatorBlockDistNeg [2byte]
+Blocks in Negative direction above this disable machine (2 high bytes of pos), locator 1&2
+
+p dIPerVolt [2byte]
+Positive current change per sample per volt coefficent
+
+p dIPerCurr [2byte]
+Negative current change per sample per current coefficent
+
+p dIPerVel [2byte]
+Negative current change per sample per speed coefficent
+
+p CurrentSim [2byte]
+Simulated current
+
+p AccRampToVel [2byte]
+Accel used to ramp to velocity (2 high bytes)
+
+p IndexCngPosNotify [2byte hex]
+Low 16 bits Pos when index changed
+
+p IndexCngdPosNotify [1byte signed]
+dPos when index changed
+
+
+
+
+
+[ENDPARAM]
+
+
+
+

@@ -1,0 +1,353 @@
+Latest Version of Commands (November 2000)
+
+	PC <--> Microcontroller Interface Protocol
+	------------------------------------------
+
+
+------ HEADER BYTE from PC or mircocontroller ------
+
+	7 6 5 4 3 2 1 0
+	          \___/  - Packet count ID 0-7 (set by sender)
+	        |		 - 1 = initiated, 0 = reply
+	    \_/			 - Packet Type 0-3
+	  |				 - 1 = request value, 0 = sending value
+	|				 _/ If reply: Error Status (1 = Error requiring resending of info)
+					  \ If initiated: spare
+
+	Packet Type: (0-3)
+		0 = Single Byte
+		1 = Data Packet
+		2 = Path Packet
+		3 = Variable Packet
+
+----------------------------------------------------------------
+SINGLE BYTE
+-----------
+
+	Header		(Single Byte)
+		NOP Operation
+		if initiated standard packet
+		if reply 1 byte nop
+
+
+
+
+----------------------------------------------------------------
+DATA PACKET	(6 byte)
+-----------
+		Header		(Data)
+			inst0	Data Type
+			inst1
+			value0
+			value1
+		Checksum
+	Data Type:
+	inst0<6:7>:
+		0x00-0x3f	Parameter
+		0x40-0x7f	Other Data
+		0x80-0xbf	Confirmations
+		0xc0-0xff	Specific
+
+	Parameter:			
+		0x00-0x0f	Parameter, low nibble is axis
+		0x10-0x1f	unassigned
+		0x20-0x2f	Register(inst1), low nibble is bank(0-7), get/set one byte
+		0x30-0x3f	Register(inst1), low nibble is bank(0-7), get/set two bytes
+	Other Data:
+		0x40-0x4f	Request path data
+		0x50-0x5f	Request sample data
+		0x60-0x6f	unassigned
+		0x70-0x7f	Request controller description
+
+	  previously	0x40-0x5f	- Confirmation reply
+	  previously	0x60-0x7f	- Request data
+	Confirmations:
+		0x80-0x8f	Confirmation reply for path data
+		0x90-0x9f
+		0xa0-0xaf
+		0xb0-0xbf
+	Specific:
+		0xc0-0xcf	RAM data b<0>0: 1 byte, 1: 2 bytes, b<1>1: inc address
+		0xd0-0xdf
+		0xe0-0xef	Controller Error Packet
+		0xf0-0xff	PC Comms Error Packet	
+
+
+
+
+
+
+
+Parameter Type (0x00-0x3f)
+	ParamAxis
+	ParamNum
+	ValueL (LSByte)
+	ValueH (MSByte)
+
+	Axis:	High nibble:	0 - 3 for param operation
+			Low nibbble:	0 = general parameter
+								1 - 0xd = axis parameter 1 - 13
+								0xe = pre specified axes parameters
+								0xf = all axes parameters
+	Parameter#:	0 - 0xff
+
+
+Request Path Data Type (0x40-0x4f)
+	inst0	0x40-0x4f
+	inst1	not used
+	value0	signed 16 bit Path Buffer Object Number (see below)
+	value1
+
+	eg. PathBuffNum = 4
+	Object#		( 0 )	( 1 )	( 2 )	( 3 )	next vacant ...	+numbers
+		    Next to use			Last Sent
+			 -4	 -3	 -2	 -1			-numbers
+	Example of Object selection with positive or negative numbering
+
+Request Sample Data Type (0x50-0x5f)
+	inst0	0x50-0x5f
+	inst1	not used
+	value0	not used
+	value1	not used
+	
+	Returns next sample data from buffer, if empty returns ???
+
+Request controller description (0x70-0x7f)
+	inst0	0x70-0x7f
+	inst1	string section number
+	value0	not used
+	value1	not used
+	
+	Returns ~ 8 char per section in variable packet
+
+
+Request RAM Data Type (0xc0-0xcf)
+	inst0	0xc0-0xcf	RAM data b<0>0: 1 byte, 1: 2 bytes, b<1>1: inc address
+	inst1	not used
+	value0	not used
+	value1	not used
+	
+
+
+Controller Error Packet (0xe0-0xef)
+	Notification of Controller Error
+
+	Header			(Send Param)
+		0xe0-oxef	[Controller Error]
+		Last Error
+		Last Error Axis
+		Error Count
+	Checksum
+
+	 (inst1=Last Error, value0=Last Error Axis, value1=Error Count)
+
+
+
+
+PC Comms Error Packet (0xf0-0xff)
+
+	Header			(Send Param)
+		0xf0-oxff	[PC Comms Error]
+		Error Code
+		Received Header
+		Error Info
+	Checksum
+
+	--- Error Info description ---
+	  Error Code			  Error Info
+	Received ID error		Expected ID
+	Rx checksum				Received checksum
+
+	Error types: (see "Error.inc" in PIC software)
+		Checksum Error
+		Parity Error
+		ID Error
+		Parameter number invalid, For Param errors, Error info is ParamNum, Param Axis low byte is still valid
+		Value out of range
+
+
+
+		
+
+
+
+
+----------------------------------------------------------------
+PATH PACKET
+-----------
+
+---- Send or receive axis data in a data packet --------
+Data Packet:	For 'Send Initiated' or 'Request Reply'		(Default 10 byte)
+	Header		(Path)
+		Step Type/Count
+		Ramp Time		only for types 0-3	(or other depending on 'Step Type')
+		X0	\_	0 - 3 bytes independently for each axis (default 3)
+		X1	/
+		X2
+		Y0
+		Y1
+		Y2
+		Z0
+		Z1
+		Z2
+	Checksum
+
+
+	Step Type/Count:
+		7 6 5 4 3 2 1 0
+		        \_____/ - Step Count 0-15 or RampTime<8:11>
+		\_____/         - 0-15 type: (only 0->3 inc step count by Ramp Time)
+				0 = ramp by dAcc value * dAcc factor
+				1 = step to Acc value * Acc factor and hold with dAcc = 0
+				2 = ramp by dAcc value
+				3 = step to Acc value and hold with dAcc = 0
+
+				4 = dAccel factor for axis number in low nibble of 'RampTime' (0x0f = all)
+				5 = Accel factor for axis number in low nibble of 'RampTime' (0x0f = all)
+
+				6 = Workpiece cutting resistance force
+				7 = Set a control to value (spindle speed, vacum, etc)
+
+				d = end  path with Acceleration = 0, at current velocity
+				e = end  path with Velocity ramp to 0 if not already
+				f = end  path with Velocity = 0 immediately, at current position.
+
+	Ramp Time:
+		0       - step to Acc value (if axis value == 0x8000 then no step)
+		1 - ff  - ramp by dAcc value for # steps
+
+	X (l):		- low byte of value (0x8000 as a step to means no step)
+	X (h):		- high byte of value
+
+---- Return confirmation data in a standard packet --------
+
+	Header			(Data, Send, Reply)
+		0x40-0x5f	- Data confirmation - low nibble for Path Time<8:11>
+		Data Operation Result - see below
+		Step Type/Count	- Received Step Type, next expected Step Count
+		Path Time	- Cumulative time of path so far (incremented if data stored)
+	Checksum
+
+	Data Operation Result:
+		7 6 5 4 3 2 1 0
+		        \_____/ - 0-15 room left on path buffer (15 = 15 or more)
+		  \___/         - Operation result status
+		|               - 1 = Error: Data wasn't stored
+
+	bits<4:6>
+	0 = OK, data stored
+	1 = buffer was full, data wasn't stored
+	2 = step count mismatch between received data and controller, data wasn't stored
+	7 = got end path data
+
+
+---- Request axis data in a standard packet --------
+
+	Header			(Data, Request, Initiated)
+		0x6?-0x7?	- Request data - low nibble not used
+		0
+		Data Object low
+		Data Object high
+	Checksum
+
+ eg.	PathBuffNum = 4
+	Object#		( 0 )	( 1 )	( 2 )	( 3 )	next vacant ...	+numbers
+		    Next to use			Last Sent
+				 -4		 -3		 -2		 -1			-numbers
+	Example of Object selection with positive or negative numbering
+
+ Returns a Data Packet
+
+
+
+----------------------------------------------------------------
+VARIABLE PACKET
+---------------
+
+	Header		(Variable)
+	Type (high nibble) | Length Total-4 (low nibble)
+	...
+	...
+	Checksum
+
+
+Types (high nibble):
+  0x10	; Controller description
+  0x20	; Locator change state position
+  0x30	; Sample data
+  0x40	; Motion ppdate
+  0x50	; Probe Sample
+
+
+-- Controller description [type = 0x10, length = 11]
+	Header
+	Type/Length (0x1b)
+	8 x char
+	Checksum
+
+
+-- Locator change state position [type = 0x20, length = 10]
+	Header
+	Type/Length (0x2a)
+	Axis - bits<0:3> = axis number (1=X, 2=Y, 3=Z)
+	New Locator State flags - bits<0:2>=locator 1:3 state (1=blocked/closed) bits<4:6>locator 1:3 changed, if no change bits then reporting a missed change. b<7> = 1 always. b<3> = 1 if this is a missed change notification or a missed is pending
+	Pos0 - Position on sample after change
+	Pos1
+	Pos2
+	dPos0 - Position change between samples (after - before)
+	dPos1
+	Checksum
+
+		X, Y use only locator 1 (bit0), Z uses locator 1-3 for top, bottom, ceiling respectivly
+
+-- Sample Data [type = 0x30, length = 6+]
+	Header
+	Type/Length (0x3?)
+	Sample Count
+	Byte0
+	Byte1
+	Byte2
+	......
+	Checksum
+
+
+-- Motion Update [type = 0x40, length = 9, 12, 15]
+	Header
+	Type/Length (0x4?)
+	Time Count B0
+	Time Count B1
+	Param Code
+	Axis 1 Value0		value bytes depends on parameter
+	Axis 1 Value1
+	Axis 1 Value2
+	Axis 2 Value0
+	Axis 2 Value1
+	Axis 2 Value2
+	Axis 3 Value0
+	Axis 3 Value1
+	Axis 3 Value2
+	Checksum
+
+
+
+-- Probe Sample [type = 0x50, length = 16]
+
+	Header
+	Type/Length (0x5c)
+	ProbeInfo
+	ProbeRelPosSampleStep
+	ProbeZSampleValue0
+	ProbeZSampleValue1
+	Axis 1 Position0
+	Axis 1 Position1
+	Axis 1 Position2
+	Axis 2 Position0
+	Axis 2 Position1
+	Axis 2 Position2
+	Axis 3 Position0
+	Axis 3 Position1
+	Axis 3 Position2
+	Checksum
+
+
+

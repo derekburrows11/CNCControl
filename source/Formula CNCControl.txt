@@ -1,0 +1,281 @@
+
+-----------------------------
+Parametric formula
+-----------------------------
+
+
+	Pos  = P(s)
+	Vel  = V(s).ds/dt
+	Acc  = A(s).(ds/dt)^2 + V(s).d2s/dt2
+	Jerk = J(s).(ds/dt)^3 + 3.A(s).d2s/dt2.ds/dt + V(s).d3s/dt3
+	dJerk= dJ(s).(ds/dt)^4 + 6.J(s).d2s/dt2.(ds/dt)^2 + A(s).(4.d3s/dt3.ds/dt + 3.(d2s/dt2)^2) + V(s).d4s/dt4
+			 dJ(s) = 0 for cubic P(s)!
+
+if V(s) is very small then iterate at least once so only ignoring d3s/dt3:
+	Assume V(s) == 0
+	ds/dt = sqrt(Acc / A(s))
+	d2s/dt2 = (Jerk - J(s).(ds/dt)^3) / (3.A(s).ds/dt)
+
+	Again using V(s)
+	ds/dt = sqrt((Acc - V(s).d2s/dt2) / A(s))
+
+-----------------------------
+Cubic position formula
+-----------------------------
+
+
+dt = change time steps
+a = acc
+2v = vel * 2
+6p = pos * 6
+where a(t) varies linearly from a0 to a1 over period dt
+a(t) = a0 + jerk * t
+
+
+a1 = a0 + dt * jerk
+dv = dt * a0 + dt^2 * jerk/2
+dv = dt * (a0 + a1) / 2
+a1 = 2*dv / dt - a0
+a1^2 - a0^2 = 2 * jerk * dv
+
+dt = [-a0 +/-sqrt(a0^2 + 2.j.dv)] / j
+
+dp = dt * v0 + dt^2 * a0/2 + dt^3 * jerk/6
+
+dp = dt * v0 + dt^2 * (a0/3 + a1/6)
+dp = dt * v1 - dt^2 * (a0/6 + a1/3)
+dp = dt * (2*v0 + v1) / 3 + dt^2 * a0/6
+dp = dt * (v0 + 2*v1) / 3 - dt^2 * a1/6
+
+a1 = 6*dp / dt^2 - 6*v0 / dt - 2*a0
+
+
+
+a1NoVAerr = a1
+a0NoVAerr = 2*dv / dt - a1
+a1NoPAerr = a1
+a0NoPAerr = 3*dp/dt^2 - 3*v0/dt - a1/2
+a1NoPVerr = (6*v0 + 4*dv) / dt - 6*dp / dt^2
+a0NoPVerr = 2*dv / dt - a1NoPVerr
+
+
+-------------------------------
+Using scaled values: a, 2v, 6p
+-------------------------------
+
+d2v = dt * (a0 + a1)
+
+d6p = dt * 3*2v0 + dt^2 * 3*2a0 + dt^3 * jerk
+
+d6p = dt * 3*2v0 + dt^2 * (2*a0 + a1)
+d6p = dt * 3*2v1 - dt^2 * (a0 + 2*a1)
+d6p = dt * (2*2v0 + 2v1) + dt^2 * a0
+d6p = dt * (2v0 + 2*2v1) - dt^2 * a1
+
+a1 = d6p / dt^2 - 3*2v0 / dt - 2*a0
+
+a1 * dt^2 = dt * (2v0 + 2*2v1) - d6p
+
+
+a1NoVAerr = a1
+a0NoVAerr = dv / dt - a1
+a1NoPAerr = a1
+a0NoPAerr = (dp / dt^2 - 3 * v0 / dt - a1) / 2
+a1NoPVerr = (3 * v0 + 2 * dv) / dt - dp / dt^2
+a0NoPVerr = dv / dt - a1NoPVerr
+
+-----------------------------
+Discrete control equs
+-----------------------------
+
+state vector [p v a]'
+
+With continuous accel ie. a(0) is a(1) of previous step
+[ p(1) ]   [ 1    T   T.T/3 ] [ p(0) ]   [ T.T/6 ]
+[ v(1) ] = [ 0    1     T/2 ].[ v(0) ] + [   T/2 ].aIN(1)
+[ a(1) ]   [ 0    0     0   ] [ a(0) ]   [   1   ]
+
+With stepped accel ie. a(0) is aIN(0)
+[ p(1) ]   [ 1    T    0 ] [ p(0) ]   [ T.T/3   T.T/6 ] [ aIN(0) ]
+[ v(1) ] = [ 0    1    0 ].[ v(0) ] + [   T/2     T/2 ].[ aIN(1) ]
+[ a(1) ]   [ 0    0    0 ] [ a(0) ]   [   0       1   ]
+
+
+
+
+
+
+-----------------------------
+Error tolerance
+-----------------------------
+
+error in:
+
+ds/dt = d(ds/dt)
+
+dv = d(dp/dt) = dp/ds * d(ds/dt)
+
+as dp = dv * v/a					(for constant acc)
+dp = v/a * dp/ds * d(ds/dt)
+
+ds = v/a * d(ds/dt)
+
+d(ds/dt) = dp * a/v / (dp/ds)		(for constant acc)
+
+
+
+-----------------------------
+PVA integer resolution sizes
+-----------------------------
+
+dV = dA * dT / 2
+dP = dA * dT^2 / 6
+->
+dA = dP * 6 / dT^2
+dV = dP * 3 / dT
+
+for:
+dT = 1.024ms
+dPencoder = 2.5mm / 4096 = 0.61um      (3 bytes gives +/-5.12m)
+dPtrack = 0.61um / 256^2 = 9.3e-9mm    (for 5 byte PosTrack)
+dPtrack = 0.61um / 256^3 = 3.6e-11mm   (for 6 byte PosTrack)
+
+
+Ptrack bytes |  dP mm  | dV mm/s | dA mm/s^2 | Vmax(4byte) mm/s | Amax(3byte) mm/s^2
+        5      9.3e-9    2.7e-5      5.3e-2       +/- 60e3          +/- 445e3
+        6      3.6e-11   1.1e-7      2.1e-4       +/- 236           +/- 1800
+
+
+
+
+
+----------------------------------------------------
+Acceleration ramp move - for backlash adjustment
+----------------------------------------------------
+	Accel:
+	        ----
+	      /      \
+	____/          \             ____
+	                 \          /
+	                   \      /
+	                     ----
+	   0   1    2   3   4    5   6
+
+	a0 = a3 = a6 = 0
+	a1 = a2
+	a4 = a5
+	v0 = v6 = 0
+
+	t01 = t(1) - t(0) etc.
+
+	using:
+	dp = dt * v0 + dt^2 * (a0/3 + a1/6)
+	dv = dt * (a0 + a1) / 2
+
+	----------------
+	if:
+	t01 = t23 = t34 = t56
+	t12 = t45
+	a1 = -a4
+
+
+	p01 = t01^2 * a1/6
+	v1  = t01   * a1/2
+
+	p12 = t12*t01 * a1/2 + t12^2 * a1/2
+	v2  = (t01/2 + t12) * a1
+
+	p23 = t01 * (t01/2 + t12) * a1 + t01^2 * a1/3
+	v3  = (t01 + t12) * a1
+
+	p03 = (t01^2 + t01*t12 *3/2 + t12^2 /2) * a1
+	p06 = (2*t01^2 + 3*t01*t12 + t12^2) * a1
+	p06 = (t01 + t12) * (2*t01 + t12) * a1
+
+
+	----------------
+
+	If using just step accel
+
+	Accel:
+	  a1 -------
+	    |       |
+	____|       |         ____
+	            |        |
+	            |        |
+	             -------- a2
+	    0       1        2
+
+	v2 = 0
+	v0 = given
+
+
+	p01 = v0*t01 + a1/2*t01^2
+	v1  = v0 + a1 * t01
+
+	p12 = (v0 + a1*t01) * t12 + a2/2 * t12^2
+	v2  = v0 + a1*t01 + a2*t12 = 0
+
+	p02 = v0*t01 + a1/2*t01^2 + (v0 + a1*t01) * t12 + a2/2 * t12^2
+	p02 = v0*t01 + a1/2*t01^2 - a2*t12^2 + a2/2*t12^2
+	p02 = v0*t01 + a1/2*t01^2 - a2/2*((-v0-a1*t01)/a2)^2
+
+	p02 = v0*t01 + a1/2*t01^2 - (v0 + a1*t01)^2 / (2*a2)
+	p02 = (1 - a1/a2)*a1/2 * t01^2 + (1 - a1/a2)*v0 * t01 - v0^2/(2*a2)
+
+	t12 = -(v0 + a1*t01)/a2
+
+	if:
+	a2 = -a1
+	v0 = 0
+	p02 = a1 * t01^2
+	=> t01^2 = p02 / a1
+
+	if:
+	a2 = -a1
+	v0 != 0
+	0 = a1 * t01^2 + 2*v0 * t01 + v0^2/(2*a1) - p02
+	=> t01 = ( -2*v0 +/-sqrt[4*v0^2 - 4*a1*(v0^2/(2*a1) - p02)] ) / (2*a1)
+
+
+
+--------------------------------------
+To arrive at final position
+--------------------------------------
+In 2 accel ramp steps:
+given: a0, v0, p02
+
+t1 = t2 = t
+v2 = 0
+
+find: a1, a2
+
+using:
+dv = dt * (a0 + a1) / 2
+dp = dt * v0 + dt^2 * (a0/3 + a1/6)
+
+
+v1 = v0 + t1 * (a0 + a1) / 2
+v2 = v0 + t1 * (a0 + a1) / 2 + t2 * (a1 + a2) / 2
+v02 = t * (a0 + 2*a1 + a2) / 2
+
+p01 = t * v0 + t^2 * (a0/3 + a1/6)
+p02 = t * v0 + t^2 * (a0/3 + a1/6) + t * (v0 + t * (a0 + a1)/2) + t^2 * (a1/3 + a2/6)
+p02 = 2*t * v0 + t^2 * (5*a0 + 6*a1 + a2) / 6
+
+[2*t     t  ] * [a1] = [2*v02 - t*a0             ]
+[t^2   t^2/6]   [a2]   [p02 - 2*t*v0 - 5/6*t^2*a0]
+
+det = t^3/3 - t^3 = -2/3*t^3
+a1 = 3*[t^2/6*(-2*v0 - t*a0) -   t*(p02 - 2*t*v0 - 5/6*t^2*a0)] / (-2*t^3)
+a2 = 3*[-t^2 *(-2*v0 - t*a0) + 2*t*(p02 - 2*t*v0 - 5/6*t^2*a0)] / (-2*t^3)
+
+a1 = [   t*v0 +   t^2*a0/2 + 3*p02 - 6*t*v0 - 5*t^2*a0/2] / (2*t^2)
+a2 = [-3*t*v0 - 3*t^2*a0/2 - 3*p02 + 6*t*v0 + 5*t^2*a0/2] / (  t^2)
+
+a1 = [  3*p02 - 5*t*v0 - 2*t^2*a0] / (2*t^2)
+a2 = [- 3*p02 + 3*t*v0 +   t^2*a0] / (  t^2)
+
+
+
+

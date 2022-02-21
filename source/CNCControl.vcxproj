@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <Keyword>MFCProj</Keyword>
+    <ProjectGuid>{B55B07DD-8791-4E4A-B6A9-E188493D1AC0}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Release\CNCControl.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\Release\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release\CNCControl.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0c09</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\CNCControl.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>.\Release\CNCControl.exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level4</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>c:\derek\vc\pathmath;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
+      <BrowseInformation>true</BrowseInformation>
+      <PrecompiledHeaderOutputFile>.\Debug\CNCControl.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\Debug\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Debug\CNCControl.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <RedirectOutputAndErrors>NUL</RedirectOutputAndErrors>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0c09</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\CNCControl.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <OutputFile>.\Debug\CNCControl.exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\DlgUtils.cpp" />
+    <ClCompile Include="..\Common\MoveView.cpp" />
+    <ClCompile Include="..\Common\StrUtils.cpp" />
+    <ClCompile Include="AnimationSettingsDlg.cpp" />
+    <ClCompile Include="BoxLimit.cpp" />
+    <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="CNCComms.cpp" />
+    <ClCompile Include="CNCControlApp.cpp" />
+    <ClCompile Include="CNCControlDoc.cpp" />
+    <ClCompile Include="CNCControlView.cpp" />
+    <ClCompile Include="CommsDataDlg.cpp" />
+    <ClCompile Include="ContPathData.cpp" />
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="ControllerPath.cpp" />
+    <ClCompile Include="ControllerTracker.cpp" />
+    <ClCompile Include="DiagnoseDlg.cpp" />
+    <ClCompile Include="DimensionsDlg.cpp" />
+    <ClCompile Include="GeneralOptionsDlg.cpp" />
+    <ClCompile Include="GridView.cpp" />
+    <ClCompile Include="ItemEdit.cpp" />
+    <ClCompile Include="LogDoc.cpp" />
+    <ClCompile Include="MachinePathSegDlg.cpp" />
+    <ClCompile Include="MachinePropDlg.cpp" />
+    <ClCompile Include="MachineSim.cpp" />
+    <ClCompile Include="MachineState.cpp" />
+    <ClCompile Include="MachineStatusView.cpp" />
+    <ClCompile Include="MachineTracker.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="ManualControlView.cpp" />
+    <ClCompile Include="Packet.cpp" />
+    <ClCompile Include="Param.cpp" />
+    <ClCompile Include="ParamDoc.cpp" />
+    <ClCompile Include="ParamLoader.cpp" />
+    <ClCompile Include="ParamView.cpp" />
+    <ClCompile Include="PathAnimateView.cpp" />
+    <ClCompile Include="PathBuilder.cpp" />
+    <ClCompile Include="PathDataObjects.cpp" />
+    <ClCompile Include="PathDoc.cpp" />
+    <ClCompile Include="PathLoader.cpp" />
+    <ClCompile Include="PathMove.cpp" />
+    <ClCompile Include="PathNCIDoc.cpp" />
+    <ClCompile Include="PathPositionDlg.cpp" />
+    <ClCompile Include="PathSpeed.cpp" />
+    <ClCompile Include="PathSpeedDoc.cpp" />
+    <ClCompile Include="PathSpeedView.cpp" />
+    <ClCompile Include="PathTimeStep.cpp" />
+    <ClCompile Include="PathTracker.cpp" />
+    <ClCompile Include="PathView.cpp" />
+    <ClCompile Include="PktControl.cpp" />
+    <ClCompile Include="PlayerBar.cpp" />
+    <ClCompile Include="PolyCurveFit.cpp" />
+    <ClCompile Include="PortSelDlg.cpp" />
+    <ClCompile Include="PosConverter.cpp" />
+    <ClCompile Include="ProbeSampler.cpp" />
+    <ClCompile Include="ProbeSampleView.cpp" />
+    <ClCompile Include="ReadEPSFile.cpp" />
+    <ClCompile Include="ReadNCIFile.cpp" />
+    <ClCompile Include="SeekValue.cpp" />
+    <ClCompile Include="SendBytesDlg.cpp" />
+    <ClCompile Include="Settings.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SettingsData.cpp" />
+    <ClCompile Include="SetToolDlg.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="Store.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CNCControl.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\DlgUtils.h" />
+    <ClInclude Include="..\Common\FIFOBuffer.h" />
+    <ClInclude Include="..\Common\Matrix.h" />
+    <ClInclude Include="..\Common\MostRecentList.h" />
+    <ClInclude Include="..\Common\MoveView.h" />
+    <ClInclude Include="..\Common\StrUtils.h" />
+    <ClInclude Include="..\Common\Vector.h" />
+    <ClInclude Include="AnimationSettingsDlg.h" />
+    <ClInclude Include="BoxLimit.h" />
+    <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="CNCComms.h" />
+    <ClInclude Include="CNCControl.h" />
+    <ClInclude Include="CNCControlApp.h" />
+    <ClInclude Include="CNCControlDoc.h" />
+    <ClInclude Include="CNCControlView.h" />
+    <ClInclude Include="CommsDataDlg.h" />
+    <ClInclude Include="ContPathData.h" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="ControllerPath.h" />
+    <ClInclude Include="ControllerTracker.h" />
+    <ClInclude Include="DiagnoseDlg.h" />
+    <ClInclude Include="DimensionsDlg.h" />
+    <ClInclude Include="GeneralOptionsDlg.h" />
+    <ClInclude Include="GridView.h" />
+    <ClInclude Include="ItemEdit.h" />
+    <ClInclude Include="ListArray.h" />
+    <ClInclude Include="LogDoc.h" />
+    <ClInclude Include="MachineCodes.h" />
+    <ClInclude Include="MachinePathSegDlg.h" />
+    <ClInclude Include="MachinePropDlg.h" />
+    <ClInclude Include="MachineSim.h" />
+    <ClInclude Include="MachineState.h" />
+    <ClInclude Include="MachineStatusView.h" />
+    <ClInclude Include="MachineTracker.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="ManualControlView.h" />
+    <ClInclude Include="Packet.h" />
+    <ClInclude Include="Param.h" />
+    <ClInclude Include="ParamDoc.h" />
+    <ClInclude Include="ParamLoader.h" />
+    <ClInclude Include="ParamView.h" />
+    <ClInclude Include="PathAnimateView.h" />
+    <ClInclude Include="PathBuilder.h" />
+    <ClInclude Include="PathDataObjects.h" />
+    <ClInclude Include="PathDoc.h" />
+    <ClInclude Include="PathLoader.h" />
+    <ClInclude Include="PathMove.h" />
+    <ClInclude Include="PathNCIDoc.h" />
+    <ClInclude Include="PathPositionDlg.h" />
+    <ClInclude Include="PathSpeed.h" />
+    <ClInclude Include="PathSpeedDoc.h" />
+    <ClInclude Include="PathSpeedView.h" />
+    <ClInclude Include="PathTimeStep.h" />
+    <ClInclude Include="PathTracker.h" />
+    <ClInclude Include="PathView.h" />
+    <ClInclude Include="PktControl.h" />
+    <ClInclude Include="PlayerBar.h" />
+    <ClInclude Include="PolyCurveFit.h" />
+    <ClInclude Include="PortSelDlg.h" />
+    <ClInclude Include="PosConverter.h" />
+    <ClInclude Include="ProbeSampler.h" />
+    <ClInclude Include="ProbeSampleView.h" />
+    <ClInclude Include="ReadEPSFile.h" />
+    <ClInclude Include="ReadNCIFile.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SeekValue.h" />
+    <ClInclude Include="SendBytesDlg.h" />
+    <ClInclude Include="Settings.h" />
+    <ClInclude Include="SettingsData.h" />
+    <ClInclude Include="SetToolDlg.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="Store.h" />
+    <ClInclude Include="ThreadMessages.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\bitmap2.bmp" />
+    <Image Include="res\bitmap3.bmp" />
+    <Image Include="res\bmp00001.bmp" />
+    <Image Include="res\bmp00002.bmp" />
+    <Image Include="res\bmp00003.bmp" />
+    <Image Include="res\bmp00004.bmp" />
+    <Image Include="res\bmp00005.bmp" />
+    <Image Include="res\bmp00006.bmp" />
+    <Image Include="res\buttondo.bmp" />
+    <Image Include="res\buttonup.bmp" />
+    <Image Include="res\CNCControl.ico" />
+    <Image Include="res\CNCControlDoc.ico" />
+    <Image Include="res\idc_butt.bmp" />
+    <Image Include="res\motionpl.bmp" />
+    <Image Include="res\pathtoolbar.bmp" />
+    <Image Include="res\playerba.bmp" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\toolbar1.bmp" />
+    <Image Include="res\toolbarz.bmp" />
+    <Image Include="res\viewdirb.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Cnc.par" />
+    <CustomBuild Include="res\CNCControl.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Commands.txt" />
+    <Text Include="Formula CNCControl.txt" />
+    <Text Include="Formula Curve Fit Splitting.txt" />
+    <Text Include="Formula Motor Control.txt" />
+    <Text Include="ReadMe.txt" />
+    <Text Include="Results Limits.txt" />
+    <Text Include="Results S.txt" />
+    <Text Include="Results Time.txt" />
+    <Text Include="Software.txt" />
+    <Text Include="ToDo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\PathMath\Debug\PathMath.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PathMath\PathMath.vcxproj">
+      <Project>{04adb11c-c777-41ab-a799-c2621e8d7472}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

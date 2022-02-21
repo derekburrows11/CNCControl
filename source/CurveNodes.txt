@@ -1,0 +1,5 @@
+
+ NR    l       seg     span               vtCurve               dCurve.z   d2Curve.z  ratioSplit  magCurveSplit  split  dCurveFit  dCurveFitResidual 
+              28.94                                                0.000
+6334   28.94      --   14.91      0.000 -1.99e-009      0.000          --       0.000       -142.       0.148 1.00e+003     0.00300      0.0271
+

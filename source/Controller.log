@@ -1,0 +1,18 @@
+ERROR(12:09:53) - Couldn't open locator data in MachineTracker.cpp line 405
+(12:11:29) - Got Path Finished notification in ControllerPath.cpp line 177
+(12:11:50) - Got Path Finished notification in ControllerPath.cpp line 177
+(12:12:01) - Got Path Finished notification in ControllerPath.cpp line 177
+ERROR(12:12:52) - Error_AxisPastPosLimit in MachineTracker.cpp line 816
+(12:13:13) - Got Path Finished notification in ControllerPath.cpp line 177
+(12:13:15) - Got Path Finished notification in ControllerPath.cpp line 177
+(12:13:20) - Got Path Finished notification in ControllerPath.cpp line 177
+(12:13:22) - Got Path Finished notification in ControllerPath.cpp line 177
+(12:13:27) - Got Path Finished notification in ControllerPath.cpp line 177
+(12:13:29) - Got Path Finished notification in ControllerPath.cpp line 177
+ERROR(12:14:37) - Error_AxisPastPosLimit in MachineTracker.cpp line 816
+(12:14:48) - Got Path Finished notification in ControllerPath.cpp line 177
+(12:14:51) - Got Path Finished notification in ControllerPath.cpp line 177
+ERROR(12:15:04) - Error_RemoteMachineShutdown in MachineTracker.cpp line 816
+(12:15:12) - Got Path Finished notification in ControllerPath.cpp line 177
+(12:15:13) - Got Path Finished notification in ControllerPath.cpp line 177
+ERROR(12:15:16) - Error_AxisPastPosLimit in MachineTracker.cpp line 816

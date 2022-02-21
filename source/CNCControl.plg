@@ -1,0 +1,167 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CNCControl - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\DEREKB~1\LOCALS~1\Temp\RSP10.tmp" with contents
+[
+/nologo /MDd /W4 /Gm /GX /ZI /Od /I "c:\derek\vc\pathmath" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /FR"Debug/" /Fp"Debug/CNCControl.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\Derek\VC\CNCControl\PathMove.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DEREKB~1\LOCALS~1\Temp\RSP10.tmp" 
+Creating temporary file "C:\DOCUME~1\DEREKB~1\LOCALS~1\Temp\RSP11.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/CNCControl.pdb" /debug /machine:I386 /out:"Debug/CNCControl.exe" /pdbtype:sept 
+.\Debug\AnimationSettingsDlg.obj
+.\Debug\BoxLimit.obj
+.\Debug\ChildFrm.obj
+.\Debug\CNCComms.obj
+.\Debug\CNCControlApp.obj
+.\Debug\CNCControlDoc.obj
+.\Debug\CNCControlView.obj
+.\Debug\CommsDataDlg.obj
+.\Debug\ContPathData.obj
+.\Debug\Controller.obj
+.\Debug\ControllerPath.obj
+.\Debug\ControllerTracker.obj
+.\Debug\DiagnoseDlg.obj
+.\Debug\DimensionsDlg.obj
+.\Debug\DlgUtils.obj
+.\Debug\GeneralOptionsDlg.obj
+.\Debug\GridView.obj
+.\Debug\ItemEdit.obj
+.\Debug\LogDoc.obj
+.\Debug\MachinePathSegDlg.obj
+.\Debug\MachinePropDlg.obj
+.\Debug\MachineSim.obj
+.\Debug\MachineState.obj
+.\Debug\MachineStatusView.obj
+.\Debug\MachineTracker.obj
+.\Debug\MainFrm.obj
+.\Debug\ManualControlView.obj
+.\Debug\MoveView.obj
+.\Debug\Packet.obj
+.\Debug\Param.obj
+.\Debug\ParamDoc.obj
+.\Debug\ParamLoader.obj
+.\Debug\ParamView.obj
+.\Debug\PathAnimateView.obj
+.\Debug\PathBuilder.obj
+.\Debug\PathDataObjects.obj
+.\Debug\PathDoc.obj
+.\Debug\PathLoader.obj
+.\Debug\PathMove.obj
+.\Debug\PathNCIDoc.obj
+.\Debug\PathPositionDlg.obj
+.\Debug\PathSpeed.obj
+.\Debug\PathSpeedDoc.obj
+.\Debug\PathSpeedView.obj
+.\Debug\PathTimeStep.obj
+.\Debug\PathTracker.obj
+.\Debug\PathView.obj
+.\Debug\PktControl.obj
+.\Debug\PlayerBar.obj
+.\Debug\PolyCurveFit.obj
+.\Debug\PortSelDlg.obj
+.\Debug\PosConverter.obj
+.\Debug\ProbeSampler.obj
+.\Debug\ProbeSampleView.obj
+.\Debug\ReadEPSFile.obj
+.\Debug\ReadNCIFile.obj
+.\Debug\SeekValue.obj
+.\Debug\SendBytesDlg.obj
+.\Debug\Settings.obj
+.\Debug\SettingsData.obj
+.\Debug\SetToolDlg.obj
+.\Debug\StdAfx.obj
+.\Debug\Store.obj
+.\Debug\StrUtils.obj
+.\Debug\CNCControl.res
+..\PathMath\Debug\PathMath.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\DEREKB~1\LOCALS~1\Temp\RSP11.tmp"
+<h3>Output Window</h3>
+Compiling...
+PathMove.cpp
+Linking...
+Creating temporary file "C:\DOCUME~1\DEREKB~1\LOCALS~1\Temp\RSP12.tmp" with contents
+[
+/nologo /o"Debug/CNCControl.bsc" 
+.\Debug\StdAfx.sbr
+.\Debug\AnimationSettingsDlg.sbr
+.\Debug\BoxLimit.sbr
+.\Debug\ChildFrm.sbr
+.\Debug\CNCComms.sbr
+.\Debug\CNCControlApp.sbr
+.\Debug\CNCControlDoc.sbr
+.\Debug\CNCControlView.sbr
+.\Debug\CommsDataDlg.sbr
+.\Debug\ContPathData.sbr
+.\Debug\Controller.sbr
+.\Debug\ControllerPath.sbr
+.\Debug\ControllerTracker.sbr
+.\Debug\DiagnoseDlg.sbr
+.\Debug\DimensionsDlg.sbr
+.\Debug\DlgUtils.sbr
+.\Debug\GeneralOptionsDlg.sbr
+.\Debug\GridView.sbr
+.\Debug\ItemEdit.sbr
+.\Debug\LogDoc.sbr
+.\Debug\MachinePathSegDlg.sbr
+.\Debug\MachinePropDlg.sbr
+.\Debug\MachineSim.sbr
+.\Debug\MachineState.sbr
+.\Debug\MachineStatusView.sbr
+.\Debug\MachineTracker.sbr
+.\Debug\MainFrm.sbr
+.\Debug\ManualControlView.sbr
+.\Debug\MoveView.sbr
+.\Debug\Packet.sbr
+.\Debug\Param.sbr
+.\Debug\ParamDoc.sbr
+.\Debug\ParamLoader.sbr
+.\Debug\ParamView.sbr
+.\Debug\PathAnimateView.sbr
+.\Debug\PathBuilder.sbr
+.\Debug\PathDataObjects.sbr
+.\Debug\PathDoc.sbr
+.\Debug\PathLoader.sbr
+.\Debug\PathMove.sbr
+.\Debug\PathNCIDoc.sbr
+.\Debug\PathPositionDlg.sbr
+.\Debug\PathSpeed.sbr
+.\Debug\PathSpeedDoc.sbr
+.\Debug\PathSpeedView.sbr
+.\Debug\PathTimeStep.sbr
+.\Debug\PathTracker.sbr
+.\Debug\PathView.sbr
+.\Debug\PktControl.sbr
+.\Debug\PlayerBar.sbr
+.\Debug\PolyCurveFit.sbr
+.\Debug\PortSelDlg.sbr
+.\Debug\PosConverter.sbr
+.\Debug\ProbeSampler.sbr
+.\Debug\ProbeSampleView.sbr
+.\Debug\ReadEPSFile.sbr
+.\Debug\ReadNCIFile.sbr
+.\Debug\SeekValue.sbr
+.\Debug\SendBytesDlg.sbr
+.\Debug\Settings.sbr
+.\Debug\SettingsData.sbr
+.\Debug\SetToolDlg.sbr
+.\Debug\Store.sbr
+.\Debug\StrUtils.sbr]
+Creating command line "bscmake.exe @C:\DOCUME~1\DEREKB~1\LOCALS~1\Temp\RSP12.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+CNCControl.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

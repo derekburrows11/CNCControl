@@ -1,0 +1,520 @@
+
+------------------------------
+Motor Control formula
+------------------------------
+
+For dc electric motor:
+
+v  = terminal voltage
+i  = terminal current
+x  = rotation position (rad)
+w  = rotation speed (rad/s)
+w' = rotation accel (rad/s^2)
+Ft = shaft torque
+
+E  = back EMF per rad/s (v.s/rad)
+R  = series resistance (ohm)
+L  = inductance	(henry)
+T  = shaft torque per Amp (N.m/A)
+Mr = Rotational inertia mass (kg.m^2)
+F0 = constant torque load (N.m)
+F1 = torque load change with speed (N.m.s/rad)
+
+	v = E.w + R.i + L.i'
+	Ft = T.i
+	Ft = F0.sign(w) + F1.w + Mr.w'
+
+	if w = 0, abs(F0) is <= Fstatic
+	F0 includes Fload
+
+=> T.i = F0.sign(w) + F1.w + Mr.w'
+
+steady state condition
+v = E.w + R.i				...1
+T.i = F0.sign(w) + F1.w		...2
+T.v = T.E.w + R.F0.sign(w) + R.F1.w
+T.v = (T.E + R.F1).w + R.F0.sign(w)
+T.v - R.F0.sign(w) = (T.E + R.F1).w
+
+E.T.i = E.F0.sign(w) + F1.v - F1.R.i
+(E.T + F1.R).i = E.F0.sign(w) + F1.v
+
+
+Wss = T.v - R.F0		v, Wss > 0
+	  ----------
+	  T.E + R.F1
+
+Wss = Fb.Gc.v - Fd.Gb		v, Wss > 0
+	  ---------------
+	  Fb.Fc + Fa.Fd
+
+Iss = F1.v + E.F0		v, Iss > 0
+	  -----------
+	  T.E + R.F1
+
+Iss = Fa.Gc.v + Fc.Gb		v, Iss > 0
+	  ---------------
+	  Fb.Fc + Fa.Fd
+
+------------------------------
+states:
+x = [ w  i ]'
+u = [ v  sign(w) ]'
+
+state space matrix:
+x' = F.x + G.u
+y  = H.x + J.u
+
+F =
+[ -F1/Mr   T/Mr	]
+[  -E/L	  -R/L	]
+
+G =
+[	0	 -F0/Mr	]
+[	1/L		0	]
+
+H = [ 1  0 ]  or  [ 0  1 ]		for w or i respectively
+J = [ 0 ]
+
+
+------------------------------
+
+From Feedback control of dynamic systems p.486
+y/u = H / (sI - F) * G  + J
+
+let
+F =
+[ -Fa   Fb ]
+[ -Fc  -Fd ]
+
+G =
+[  0   -Gb ]
+[  Gc   0  ]
+
+Fa = F1/Mr
+Fb = T/Mr
+Fc = E/L
+Fd = R/L
+Gb = F0/Mr
+Gc = 1/L
+
+==>
+1 / (sI - F) =
+	  [ s+Fd    Fb ]
+	  [ -Fc   s+Fa ]
+	--------------------
+	(s+Fa)(s+Fd) + Fb.Fc
+
+poles =
+roots of (s^2 + (Fa+Fd)s + Fa.Fd+Fb.Fc)
+roots = (-b +/-sqrt(b^2-4ac)) / 2a
+= (-(Fa+Fd) +/-sqrt(Fa^2+Fd^2+2Fa.Fd - 4Fa.Fd - 4Fb.Fc)) / 2
+= (-(Fa+Fd) +/-sqrt(Fa^2 + Fd^2 - 2Fa.Fd - 4Fb.Fc)) / 2
+= (-(Fa+Fd) +/-sqrt((Fa-Fd)^2 - 4Fb.Fc)) / 2
+
+roots a,b
+a*b = [(Fa+Fd)^2 - ((Fa-Fd)^2 - 4Fb.Fc)] / 4
+a*b = [(Fa+Fd)^2 - ((Fa-Fd)^2 - 4Fb.Fc)] / 4
+root1*root2 = c/a = Fa.Fd+Fb.Fc
+root1+root2 = -b/a = -(Fa+Fd)
+root1-root2 = +/-sqrt(b^2-4ac)) / a
+
+1 / (sI - F) * G =
+ [ Fb.Gc     -Gb(s+Fd) ]
+ [ Gc(s+Fa)      Fc.Gb ] / (poles)
+
+numerator for:
+w/v = Fb.Gc
+i/v = Gc(s+Fa)
+w/sign(w) = -Gb(s+Fd)
+i/sign(w) = Fc.Gb
+
+
+
+
+In Discrete Time
+----------------
+W(s)   (Wss/v) ab
+---- = ----------
+V(s)   (s+a)(s+b)
+
+W(z)   [b(1-exp(-aT)) - a(1-exp(-bT))]z - [b.exp(-bT)(1-exp(-aT)) - a.exp(-aT)(1-exp(-bT))]
+---- = ------------------------------------------------------------------------------------
+V(z)     (b-a) (z-exp(-aT))(z-exp(-bT))
+
+       [b-a + a.exp(-bT) - b.exp(-aT)]z - [b.exp(-bT)(1-exp(-aT)) - a.exp(-aT)(1-exp(-bT))]
+     = ------------------------------------------------------------------------------------
+         (b-a) (z-exp(-aT))(z-exp(-bT))
+
+
+
+I(s)   (Iss/v) (s+c)ab/c
+---- = -----------------
+V(s)   (s+a)(s+b)
+
+I(z)   [b(1-exp(-aT)) - a(1-exp(-bT)) + c(exp(-aT)-exp(-bT))]z - [b.exp(-bT)(1-exp(-aT)) - a.exp(-aT)(1-exp(-bT)) + c(exp(-aT)-exp(-bT))]
+---- = ----------------------------------------------------------------------------------------------------------------------------------
+V(z)     (b-a) (z-exp(-aT))(z-exp(-bT))
+
+
+c = di(0)/dt / Iss
+c = v / (L.Iss)
+c = v.Gc / Iss
+
+Iss = Fa.Gc.v + Fc.Gb		v, Iss > 0
+	  ---------------
+	  Fb.Fc + Fa.Fd
+if Gb == 0 (non-linear term)
+c	= Fb.Fc + Fa.Fd
+	  -------------
+	     Fa
+
+
+
+For Feed Foward voltage
+use required vel and acc to find required w & i
+w = 2pi/2.5mm * vel
+dw/dt = 2pi/2.5mm * acc
+dw/dt*Mr = T*i - F1*w - F0*sign(w)
+T*i = dw/dt*Mr + F1*w + F0*sign(w)
+
+w0 = [a b c d] * [w1  i1  v1  sign(w1)]'
+
+
+
+
+Terminology: number is a previous time steps, 0 is current step
+Case a:
+Equations in terms of w, i & u:
+-------------------------------
+w0 = WaW1.w1 + WaI1.i1 + WaU1.u1			...1
+i0 = IaW1.w1 + IaI1.i1 + IaU1.u1			...2
+
+from 1
+w1 = WaW1.w2 + WaI1.i2 + WaU1.u2			...1'a
+i1 = (w0 - WaW1.w1 - WaU1.u1) / WaI1		...1'b
+i2 = (w1 - WaW1.w2 - WaU1.u2) / WaI1		...1'c
+from 2
+i1 = IaW1.w2 + IaI1.i2 + IaU1.u2			...2'a
+
+
+Case b:
+Equations in terms of (w or i) & u:
+-----------------------------------
+w0 = WbW1.w1 + WbW2.w2 + WbU1.u1 + WbU2.u2		...3
+i0 = IbI1.i1 + IbI2.i2 + IbU1.u1 + IbU2.u2		...4
+
+WbW1 =  exp(-aT)+exp(-bT)
+WbW2 = -exp(-aT)*exp(-bT)
+WbU1 = [1 - (b.exp(-aT)-a.exp(-bT))/(b-a)] * Wss
+WbU2 = [(a.exp(-aT).(1-exp(-bT)) - b.exp(-bT).(1-exp(-aT)))/(b-a)] * Wss
+
+
+
+Equations in terms of w & u only:
+---------------------------------
+sub 1'b & 1'c into 2'a to remove i1 & i2
+(w0 - WaW1.w1 - WaU1.u1) / WaI1 = IaW1.w2 + IaI1.(w1 - WaW1.w2 - WaU1.u2)/WaI1 + IaU1.u2
+w0 - WaW1.w1 - WaU1.u1 = IaW1.WaI1.w2 + IaI1.(w1 - WaW1.w2 - WaU1.u2) + IaU1.WaI1.u2
+w0 = (WaW1 + IaI1).w1 + (WaI1.IaW1 - IaI1.WaW1).w2 + WaU1.u1 + (WaI1.IaU1 - IaI1.WaU1).u2
+equivalent to 3 (Case b)
+
+sub 1' into 2
+i0 = IaW1.w1 + IaI1/WaI1(w0 - WaW1.w1 - WaU1.u1) + IaU1.u1
+i0 = IaI1/WaI1.w0 + (IaW1 - IaI1.WaW1/WaI1).w1 + (IaU1 - IaI1.WaU1/WaI1).u1
+i0 = { IaI1.w0 + (WaI1.IaW1 - IaI1.WaW1).w1 + (WaI1.IaU1 - IaI1.WaU1).u1 } / WaI1
+using 2 again
+i0 = { IaI1^2 + WaI1.IaW1).w1 + (WaI1.IaW1 - IaI1.WaW1).IaI1.w2 + WaI1.IaU1.u1
+			 + (WaI1.IaU1 - IaI1.WaU1).IaI1.u2 } / WaI1
+
+Equations in terms of w only:
+-----------------------------
+possible??
+i0:
+i0 = { IaI1.w0 + (WaI1.IaW1 - IaI1.WaW1).w1 + (WaI1.IaU1 - IaI1.WaU1).u1 } / WaI1
+
+i0 w0 w1 u1
+use 1 to sub u1
+i0 i1 w0 w1
+use 2 delayed 1 to sub i1
+i0 i2 w0 w1 w2 u2
+use 1 delayed 1 to eliminate i2
+i0 w0 w1 w2 u2
+use 3 delayed 1 to sub u2
+i0 w0 w1 w2 w3 u3
+
+
+-------------------------
+
+
+
+time equations for w & i	{ b > a }
+
+w(t) = Wss/(b-a) [b(1-exp(-at)) - a(1-exp(-bt))]
+	 = Wss [1 - (b.exp(-at) - a.exp(-bt)) / (b-a)]
+dw(t)/dt = Wss.ab/(b-a) [exp(-at) - exp(-bt)]
+pos(t) = intergral[ w(t) ]
+pos(t) = Wss/(b-a) [b(t+(exp(-at)-1)/a) - a(t+(exp(-bt)-1)/b)]
+
+dw(0)/dt = 0
+
+
+i(t) = Iss/(b-a) [(b-c)(1-exp(-at)) - (a-c)(1-exp(-bt))]
+	 = Iss [1 - ((b-c).exp(-at) - (a-c).exp(-bt)) / (b-a)]
+di(t)/dt = Iss/(b-a) [(b-c)a.exp(-at) - (a-c)b.exp(-bt)]
+di(t)/dt = Iss/(b-a) [ab(exp(-at) - exp(-bt)) + c(b.exp(-bt) - a.exp(-at))]
+di(0)/dt = c.Iss
+
+if:
+dw(t)/dt = w'.Wss
+di(t)/dt = i'.Iss
+
+w' = ab/(b-a) [exp(-at) - exp(-bt)]
+i' = 1/(b-a) [(b-c)a.exp(-at) - (a-c)b.exp(-bt)]
+i' = 1/(b-a) [ab(exp(-at) - exp(-bt)) + c(b.exp(-bt) - a.exp(-at))]
+i' = w' + c/(b-a) [b.exp(-bt) - a.exp(-at)]
+
+
+Find exp(-at) & exp(-bt) from w' & i'
+-------------------------------------
+[a b] * [exp(-at)] = [w']
+[c d]   [exp(-bt)]   [i']
+
+a =  ab/(b-a)
+b = -ab/(b-a)
+c =  a(b-c)/(b-a)
+d = -b(a-c)/(b-a)
+
+[exp(-at)] = ___1___ * [d -b] * [w']
+[exp(-bt)]   (ad-bc)   [-c a]   [i']
+
+ad-bc = [-ab.b(a-c) + ab.a(b-c)] / (b-a)^2
+ = [-abba+abbc + abab-aabc] / (b-a)^2
+ = [abcb - abca] / (b-a)^2
+ = abc / (b-a)
+
+exp(-at) = i'/c - (a-c)/ac * w'
+exp(-bt) = i'/c - (b-c)/bc * w'
+
+
+
+w(t+T) = Wss [1 - (b.exp(-at).exp(-aT) - a.exp(-bt).exp(-bT)) / (b-a)]
+i(t+T) = Iss [1 - ((b-c).exp(-at).exp(-aT) - (a-c).exp(-bt).exp(-bT)) / (b-a)]
+
+w' = -Fa.w + Fb.i   [- Gb.sign(w)]
+i' = -Fc.w - Fd.i + Gc.v
+
+
+Find exp(-at) & exp(-bt) from w & i
+-----------------------------------
+w(t) = w.Wss
+i(t) = i.Iss
+
+w(t) = Wss [1 - (b.exp(-at) - a.exp(-bt)) / (b-a)]
+i(t) = Iss [1 - ((b-c).exp(-at) - (a-c).exp(-bt)) / (b-a)]
+1 - w = (b.exp(-at) - a.exp(-bt)) / (b-a)
+1 - i = ((b-c).exp(-at) - (a-c).exp(-bt)) / (b-a)
+
+[a b] * [exp(-at)] = [1-w]
+[c d]   [exp(-bt)]   [1-i]
+a =  b/(b-a)
+b = -a/(b-a)
+c =  (b-c)/(b-a)
+d = -(a-c)/(b-a)
+
+ad-bc = [-b(a-c) + a(b-c)] / (b-a)^2
+ = [bc - ac] / (b-a)^2
+ = c / (b-a)
+
+exp(-at) = a/c * (1-i) - (a-c)/c * (1-w)
+exp(-bt) = b/c * (1-i) - (b-c)/c * (1-w)
+
+exp(-at) = 1 - w + (w-i)a/c
+exp(-bt) = 1 - w + (w-i)b/c
+
+exp(-at) = 1 - w.(1-a/c) - i.a/c
+exp(-bt) = 1 - w.(1-b/c) - i.b/c
+
+--------------------------------------
+verify:
+w = 1 - [b(1 - w + a/c(w-i)) - a(1 - w + b/c(w-i))] / (b-a)
+i = 1 - [(b-c)(1 - w + (w-i)a/c) - (a-c)(1 - w + (w-i)b/c)] / (b-a)
+
+w = 1 - [b - bw + (w-i)ab/c - a + aw - (w-i)ab/c] / (b-a)
+w = 1 - [b-a + (a-b)w] / (b-a)
+w = 1 - [1 - w] = w
+
+i = 1 - [b-c -bw+cw + (w-i)(ab-ac)/c -a+c +aw-cw - (w-i)(ab-bc)/c] / (b-a)
+i = 1 - [(b-a)(1-w) + (w-i)(b-a)] / (b-a)
+i = 1 - [1-w + w-i] = i
+
+--------------------------------------
+
+w(t+T) = Wss [1 - (b.exp(-at).exp(-aT) - a.exp(-bt).exp(-bT)) / (b-a)]
+w(t+T) = Wss [1 - (b.(1 - w + a/c(w-i)).exp(-aT) - a.(1 - w + b/c(w-i)).exp(-bT)) / (b-a)]
+w(t+T)/Wss = 1 - [(b - bw + (w-i)ab/c).exp(-aT) - (a - aw + (w-i)ab/c).exp(-bT)] / (b-a)
+w(t+T)/Wss = 1 - [(1-w)(b.exp(-aT)-a.exp(-bT)) + (w-i)(exp(-aT)-exp(-bT))ab/c] / (b-a)
+
+w(t+T)/Wss = 1 - [(b.exp(-aT)-a.exp(-bT)) + w((exp(-aT)-exp(-bT))ab/c-b.exp(-aT)+a.exp(-bT)) - i(exp(-aT)-exp(-bT))ab/c] / (b-a)
+w(t+T)/Wss = 1 - [(b.exp(-aT)-a.exp(-bT)) + w((a/c-1)b.exp(-aT)-(b/c-1)a.exp(-bT)) - i(exp(-aT)-exp(-bT))ab/c] / (b-a)
+
+w(t+T) = Wss[1 - (b.exp(-aT)-a.exp(-bT))/(b-a)] - w.Wss[(exp(-aT)-exp(-bT))ab/c - b.exp(-aT) + a.exp(-bT)]/(b-a) + i.Wss[(exp(-aT) - exp(-bT))ab/(c(b-a))]
+if Wss & Iss proportional to v
+w(t+T) = Wss/Vss.v(t)[1 - (b.exp(-aT)-a.exp(-bT))/(b-a)]
+		 - w(t)[(exp(-aT)-exp(-bT))ab/c - b.exp(-aT) + a.exp(-bT)]/(b-a)
+		 + i(t)(Wss/Iss)[(exp(-aT) - exp(-bT))ab/c]/(b-a)
+
+
+i(t+T) = Iss [1 - ((b-c).exp(-at).exp(-aT) - (a-c).exp(-bt).exp(-bT)) / (b-a)]
+i(t+T) = Iss [1 - ((b-c).(1 - w + a/c(w-i)).exp(-aT) - (a-c).(1 - w + b/c(w-i)).exp(-bT)) / (b-a)]
+i(t+T)/Iss = 1 - [(b - c - bw + cw + (w-i)ab/c - (w-i)a).exp(-aT) - (a - c - aw + cw + (w-i)ab/c - (w-i)b).exp(-bT)] / (b-a)
+i(t+T)/Iss = 1 - [(1-w)(b.exp(-aT)-a.exp(-bT)) + c(w-1)(exp(-aT)-exp(-bT)) + (w-i)(exp(-aT)-exp(-bT))ab/c - (w-i)(a.exp(-aT)-b.exp(-bT))] / (b-a)
+
+i(t+T)/Iss = 1 - [b.exp(-aT)-a.exp(-bT) - c(exp(-aT)-exp(-bT))
+				 + w( (exp(-aT)-exp(-bT))(ab/c+c-a-b) )
+				 + i( (-exp(-aT)+exp(-bT))ab/c + a.exp(-aT)-b.exp(-bT) )] / (b-a)
+
+
+
+
+
+
+========================================================
+derive next state from current state and input (w, i, v)
+
+from above:
+states:
+x = [ w  i ]'
+u = [ v  sign(w) ]'
+
+state space matrix:
+x' = F.x + G.u
+y  = H.x + J.u
+
+let
+F =
+[ -Fa   Fb ]
+[ -Fc  -Fd ]
+
+G =
+[  0   -Gb ]
+[  Gc   0  ]
+
+so
+w' = -Fa.w + Fb.i - Gb.sign(w)
+i' = -Fc.w - Fd.i + Gc.v
+
+w(t) = Aw.exp(-at) + Bw.exp(-bt) + Wss
+i(t) = Ai.exp(-at) + Bi.exp(-bt) + Iss
+
+w'(t) = -a.Aw.exp(-at) - b.Bw.exp(-bt)
+i'(t) = -a.Ai.exp(-at) - b.Bi.exp(-bt)
+
+Wss = Fb.Gc.Vss - Fd.Gb		Vss, Wss > 0
+	  ---------------
+	  Fb.Fc + Fa.Fd
+
+Iss = Fa.Gc.Vss + Fc.Gb		Vss, Iss > 0
+	  ---------------
+	  Fb.Fc + Fa.Fd
+
+check DE
+-----------------------
+for w'
+-a.Aw = -Fa.Aw + Fb.Ai
+-b.Bw = -Fa.Bw + Fb.Bi
+    0 = -Fa.Wss + Fb.Iss - Gb.sign(w)	...checked OK
+for i'
+-a.Ai = -Fc.Aw - Fd.Ai
+-b.Bi = -Fc.Bw - Fd.Bi
+    0 = -Fc.Wss - Fd.Iss + Gc.Vss		...checked OK
+
+(Fa.Fd + Fb.Fc)/() Gb - Gb = 0
+
+(-Fc.Fb.Gc.Vss + Fc.Fd.Gb - Fd.Fa.Gc.Vss - Fd.Fc.Gb) / () + Gc.v
+(-Fc.Fb - Fd.Fa)Gc.Vss / () + Gc.v
+
+a = Fa - Fb.Ai/Aw
+a = Fd + Fc.Aw/Ai
+-(a-Fa)/Fb = Ai/Aw
+ (a-Fd)/Fc = Aw/Ai
+-(a-Fa)/Fb * (a-Fd)/Fc = 1
+(a-Fa)(a-Fd) = -Fb*Fc
+a^2 - (Fa+Fd)a + Fa.Fd+Fb.Fc = 0
+------------------------------------
+
+
+inputs: w(0), i(0), v(0)
+
+w(0) = Aw + Bw + Wss
+i(0) = Ai + Bi + Iss
+
+-> Aw + Bw = w(0) - Wss
+-> Ai + Bi = i(0) - Iss
+
+w'(0) = -a.Aw - b.Bw
+i'(0) = -a.Ai - b.Bi
+
+-> -Fa.w(0) + Fb.i(0) - Gb.sign(w) = -a.Aw - b.Bw
+-> -Fc.w(0) - Fd.i(0) + Gc.v       = -a.Ai - b.Bi
+
+-> -Fa.w(0) + Fb.i(0) - Gb.sign(w) = -a.Aw - b.w(0) + b.Wss + b.Aw
+Aw(b-a) = (b-Fa)w(0) - Gb.sign(w) + Fb.i(0) - b.Wss
+(w(0) - Bw - Wss)(b-a) = (b-Fa)w(0) - Gb.sign(w) + Fb.i(0) - b.Wss
+Bw(b-a) = -(a-Fa)w(0) + Gb.sign(w) - Fb.i(0) + a.Wss
+
+-> -Fc.w(0) - Fd.i(0) + Gc.v = -a.Ai - b.i(0) + b.Iss + b.Ai
+Ai(b-a) = -Fc.w(0) + (b-Fd)i(0) + Gc.v - b.Iss
+(i(0) - Bi - Iss)(b-a) = -Fc.w(0) + (b-Fd)i(0) + Gc.v - b.Iss
+Bi(b-a) = Fc.w(0) - (a-Fd)i(0) - Gc.v + a.Iss
+
+after dt = T
+w(T) = Aw.exp(-aT) + Bw.exp(-bT) + Wss
+w(T)(b-a) = + (+(b-Fa)w(0) - Gb.sign(w) + Fb.i(0) - b.Wss).exp(-aT)
+			+ (-(a-Fa)w(0) + Gb.sign(w) - Fb.i(0) + a.Wss).exp(-bT)
+			+ Wss(b-a)
+w(T) = + [b.exp(-aT)-a.exp(-bT)]/(b-a) [w(0) - Wss]
+	   + [exp(-aT)-exp(-bT)]/(b-a) [-Fa.w(0) - Gb.sign(w) + Fb.i(0)]
+	   + Wss
+
+w0 =  w1 * [(b.exp(-aT)-a.exp(-bT)) - (exp(-aT)-exp(-bT))*Fa] / (b-a)
+	+ i1 * [(exp(-aT)-exp(-bT))*Fb] / (b-a)
+	+ v1 * Wss * [1 - (b.exp(-aT)-a.exp(-bT))/(b-a)]
+	- sign(w1) * Gb * [exp(-aT)-exp(-bT)] / (b-a)
+
+pos(T) = T.Wss - Aw/a.(exp(-aT)-1) - Bw/b.(exp(-bT)-1)
+pos(T) = T.Wss
+		+ (+(b-Fa)w(0) - Gb.sign(w) + Fb.i(0) - b.Wss)/(b-a).(1-exp(-aT))/a
+		+ (-(a-Fa)w(0) + Gb.sign(w) - Fb.i(0) + a.Wss)/(b-a).(1-exp(-bT))/b
+
+pos0= w1 * [(b-Fa)(1-exp(-aT))/a - (a-Fa)(1-exp(-bT))/b]/(b-a)
+	+ i1 * Fb * [(1-exp(-aT))/a - (1-exp(-bT))/b]/(b-a)
+	- v1 * Wss * [b.(1-exp(-aT))/a - a.(1-exp(-bT))/b]/(b-a)
+	+ v1 * Wss * T
+	- sign(w1) * Gb * [(1-exp(-aT))/a - (1-exp(-bT))/b]/(b-a)
+
+
+i(T) = Ai.exp(-aT) + Bi.exp(-bT) + Iss
+i(T)(b-a) = + (-Fc.w(0) + (b-Fd)i(0) + Gc.v - b.Iss).exp(-aT)
+			+ (+Fc.w(0) - (a-Fd)i(0) - Gc.v + a.Iss).exp(-bT)
+			+ Iss(b-a)
+i(T) = + [b.exp(-aT)-a.exp(-bT)]/(b-a) [i(0) - Iss]
+	   + [exp(-aT)-exp(-bT)]/(b-a) [-Fc.w(0) - Fd.i(0) + Gc.v]
+	   + Iss
+
+i0 =  i1 * [(b.exp(-aT)-a.exp(-bT)) - (exp(-aT)-exp(-bT))*Fd] / (b-a)
+	+ w1 * [-(exp(-aT)-exp(-bT))*Fc] / (b-a)
+	+ v1 * [Iss * (1 - (b.exp(-aT)-a.exp(-bT))/(b-a)) + (exp(-aT)-exp(-bT))*Gc/(b-a)]
+
+
+dw(T) = -Fa.w(T) + Fb.i(T) - Gb.sign(w)
+	  = + [b.exp(-aT)-a.exp(-bT)]/(b-a) [ Fb.i(0) - Fa.w(0) + Fa.Wss - Fb.Iss]
+		+ [exp(-aT)-exp(-bT)]/(b-a) [Fa^2.w(0) + Fa.Gb.sign(w) - Fa.Fb.i(0) - Fb.Fc.w(0) - Fb.Fd.i(0) + Fb.Gc.v]
+		+ Fb.Iss - Fa.Wss
+		- Gb.sign(w)
+
+dw(T) = + [b.exp(-aT)-a.exp(-bT)]/(b-a) [ Fb.i(0) - Fa.w(0) - Gb.sign(w)]
+		+ [exp(-aT)-exp(-bT)]/(b-a) [(Fa^2 - Fb.Fc).w(0) - (Fa+Fd).Fb.i(0) + Fa.Gb.sign(w) + Fb.Gc.v]
+
+
+
