@@ -1,0 +1,92 @@
+
+Locator on axis 0 Direction Pos
+edge0   426.723
+tabs      5.754   5.555   6.896
+gaps          2.786   2.869
+width    23.860
+edge1   450.583
+
+Locator on axis 0 Direction Pos
+edge0   887.160
+tabs      7.167   4.626   6.827
+gaps          2.762   2.901
+width    24.284
+edge1   911.444
+
+Locator on axis 0 Direction Pos
+edge0  1346.926
+tabs      4.822   9.683   7.515
+gaps          2.859   2.852
+width    27.731
+edge1  1374.656
+
+Locator on axis 0 Direction Pos
+edge0  1346.926
+tabs      4.822   9.683   7.515
+gaps          2.859   2.852
+width    27.731
+edge1  1374.656
+
+Locator on axis 1 Direction Pos
+edge0   258.139
+tabs     10.404   2.488  14.131
+gaps          2.747   2.833
+width    32.603
+edge1   290.742
+
+Locator on axis 1 Direction Pos
+edge0   562.702
+tabs     11.354   5.001  10.350
+gaps          2.890   2.844
+width    32.440
+edge1   595.142
+
+Locator on axis 1 Direction Neg
+edge0   562.566
+tabs     11.372   4.996  10.311
+gaps          2.874   2.883
+width    32.436
+edge1   595.002
+
+Locator on axis 1 Direction Neg
+edge0   257.983
+tabs     10.419   2.469  14.102
+gaps          2.747   2.855
+width    32.592
+edge1   290.575
+
+Locator on axis 1 Direction Pos
+edge0   258.109
+tabs     10.428   2.480  14.130
+gaps          2.758   2.824
+width    32.620
+edge1   290.729
+
+Locator on axis 1 Direction Pos
+edge0   562.698
+tabs     11.360   5.024  10.336
+gaps          2.866   2.862
+width    32.448
+edge1   595.146
+
+Locator on axis 1 Direction Neg
+edge0   562.582
+tabs     11.359   5.016  10.330
+gaps          2.875   2.853
+width    32.433
+edge1   595.015
+
+Locator on axis 1 Direction Neg
+edge0   257.986
+tabs     10.427   2.480  14.108
+gaps          2.740   2.846
+width    32.601
+edge1   290.588
+
+Locator on axis 1 Direction Pos
+edge0   258.120
+tabs     10.430   2.493  14.083
+gaps          2.751   2.857
+width    32.614
+edge1   290.733
+

@@ -1,0 +1,24 @@
+
+Number of paths = 2
+
+
+------------------------------
+Start Path 1
+Number of segments = 3
+Path bounding box = (34, -56, -3) (178.4, 45, 4)
+
+1ni	(0, 0, 0)
+1ci	[0 , 4 , 6]
+1cf	[-5, 0, 8]
+1nf	(15, 10, -5)
+2sdp	s=0 select drive properties 4
+2ci	[8.4, 0, 4.2]
+2cf	[8.4, 0, 5.3]
+2nf	(15, 3, -10)
+3ci	[-6.3, -6.3, 6]
+3cf	[0, 2.7, -5.7]
+3nf	(7.7, -9.2, 3)
+
+End Path 1
+----------------------
+
