@@ -1,0 +1,17 @@
+
+
+Software
+-----------------
+
+Rhino CAD - rhino3d.com
+- to manipulate surfaces
+download demo
+
+
+Able Software - www.ablesw.com
+- r2v, raster to vector, and contour to surface conversions
+got demo
+
+
+Open NURBS - opennurbs.org
+download sdk

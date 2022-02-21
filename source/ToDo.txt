@@ -1,0 +1,26 @@
+To Do:
+
+
+-----------------------------------------------------------
+CPathSpeed::FindBoundAxisChange - problems with z ramping
+tab settings 0.6 7 5 0.1 didn't work with "FRAMES SHAPES CUT to fix axis change.NCI"
+tab settings 0.6 7 6 0.1 OK
+
+
+Improve exact fit to 4 points! in PathNCIDoc.cpp line 1128
+
+Handle arcs in xz & yz
+
+Set servo position from encoder index
+
+Allow for backlash
+
+Tool selector with dimensions data - confirms tool with file
+
+Home pos data and position check - store home pos, vac base thickness in data base for associated nci file
+
+
+
+
+-----------------------------------------------------------
+

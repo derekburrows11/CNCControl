@@ -1,0 +1,85 @@
++	m_pLimitList	0x004c5d68 {USDriveLimit::?$TListArray}
+-	m_pLimitList->m_pData[0]	{...}
+-	CPathLoc	{...}
+	seg	670
+	s	0.089729848600889
+	dsdt	2.4389922800217
+	d2sdt2	-0.29535187240036
+	pos	250.38849843089
+	vel	-8.6354095249290
+	acc	50.000000000000
+	tDuration	100.17502420874
+	axis	1 '.'
+	type	LT_AXIS_BRAKEFROM
+	change	0 ''
++	szType	0x004c6a98
+-	m_pLimitList->m_pData[1]	{...}
+-	CPathLoc	{...}
+	seg	670
+	s	0.50667012062226
+	dsdt	2.3898939601001
+	d2sdt2	-8.9174727425887
+	pos	1260.1741943720
+	vel	13.095455800156
+	acc	-50.000000000000
+	tDuration	100.11578754842
+	axis	0 ''
+	type	LT_AXIS_BRAKEFROM
+	change	0 ''
++	szType	0x004c6a98
+-	m_pLimitList->m_pData[2]	{...}
+-	CPathLoc	{...}
+	seg	670
+	s	0.50667012062226
+	dsdt	2.3898939601001
+	d2sdt2	-0.27368707538708
+	pos	249.64279545426
+	vel	0.00000000000000
+	acc	50.000000000000
+	tDuration	99.933030680887
+	axis	1 '.'
+	type	LT_AXIS_ACCELFROM
+	change	16 '.'
++	szType	0x004c6a98
+-	m_pLimitList->m_pData[3]	{...}
+-	CPathLoc	{...}
+	seg	670
+	s	0.81272060864889
+	dsdt	2.3555375043457
+	d2sdt2	-4.8497423758694
+	pos	1261.7684229420
+	vel	11.067583385730
+	acc	-50.000000000000
+	tDuration	100.11578754842
+	axis	0 ''
+	type	LT_AXIS_BRAKEFROM
+	change	0 ''
++	szType	0x004c6a98
+-	m_pLimitList->m_pData[4]	{...}
+-	CPathLoc	{...}
+	seg	671
+	s	0.22053719199959
+	dsdt	1.7325750630634
+	d2sdt2	-7.8872111421302
+	pos	251.95781337296
+	vel	9.5235264754117
+	acc	-50.000000000000
+	tDuration	100.11578754842
+	axis	1 '.'
+	type	LT_AXIS_BRAKEFROM
+	change	0 ''
++	szType	0x004c6a98
+-	m_pLimitList->m_pData[5]	{...}
+-	CPathLoc	{...}
+	seg	671
+	s	0.22053719199959
+	dsdt	1.7325750630634
+	d2sdt2	1.4367771393087
+	pos	1262.9933369620
+	vel	0.00000000000000
+	acc	-50.000000000000
+	tDuration	0.24199352785269
+	axis	0 ''
+	type	LT_AXIS_ACCELFROM
+	change	16 '.'
++	szType	0x004c6a98
